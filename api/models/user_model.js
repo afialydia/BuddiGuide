@@ -4,6 +4,8 @@ module.exports = {
 	create,
 	findBy,
 	findById,
+	// updateUser,
+	// deleteUser,
 	getFavorites,
 	getFavoriteById,
 	updateFavorite,
@@ -24,6 +26,16 @@ function findBy(filter) {
 function findById(id) {
 	return db("users").where({ id }).first();
 }
+
+// function updateUser(id, update) {
+	
+// 	return db("users").where({ id }).update(update);
+// }
+
+// function deleteUser(id) {
+// 	console.log(id)
+// 	return db("users").where({ id }).del();
+// }
 
 //favorites crud
 

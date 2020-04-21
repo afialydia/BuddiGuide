@@ -20,7 +20,7 @@ exports.seed = function (knex) {
 					strain_id: 203
 				},
 				{
-					personal_rating: "Okay",
+					personal_rating: "Have Not Tried Yet",
 					have_tried: true,
 					notes: "Was just ok. Wouldn't recommend taking at night.",
 					user_id: 1,
@@ -41,7 +41,7 @@ exports.seed = function (knex) {
 					strain_id: 2043
 				},
 				{
-					personal_rating: "Okay",
+					personal_rating: "Have Not Tried Yet",
 					have_tried: true,
 					notes: "Was just ok. Wouldn't recommend taking at night.",
 					user_id: 2,
@@ -62,7 +62,7 @@ exports.seed = function (knex) {
 					strain_id: 263
 				},
 				{
-					personal_rating: "Okay",
+					personal_rating: "Have Not Tried Yet",
 					have_tried: false,
 					user_id: 3,
 					strain_id: 742

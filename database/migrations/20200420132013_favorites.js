@@ -5,14 +5,14 @@ exports.up = function (knex) {
 		t.enu("personal_rating", [
 			"Loved It",
 			"Liked It",
-			"Okay",
+			"Have Not Tried Yet",
 			"Not a Fan",
 			"Hated It"
-		]).defaultTo("Just Okay");
+		]).defaultTo("Have not Tried Yet");
 
 		t.boolean("have_tried").defaultTo(false);
 
-		t.text("notes", 3000).defaultTo('How was it?');
+		t.text("notes", 3000).defaultTo("Anything you wanna know for next time can go here..");
 
 		t.integer("user_id")
 			.unsigned()

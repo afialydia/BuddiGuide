@@ -22,7 +22,6 @@ function findById(id) {
 }
 
 async function createFavorite(favorite) {
-	const [id] = await db("favorites").insert(favorite, "id");
-
-	return Users.getFavoriteById(id);
+	const [fid] = await db("favorites").insert(favorite, "fid");
+	return Users.getFavoriteById(favorite.user_id,fid);
 }

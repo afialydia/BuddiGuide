@@ -62,14 +62,22 @@ router.get("/:user_id", authenticate, verify_user, (req, res) => {
 		.catch((err) => res.status(500).json(err));
 });
 
-// //Update customer profile
-// router.put("/:customerId", authenticate, verifyCustomer, (req, res) => {
-// 	const id = req.params.customerId;
+// //Update user profile
+// router.put("/:user_id", authenticate, verify_user, (req, res) => {
+// 	const user_id = req.params;
 // 	const update = req.body;
 
-// 	Customers.updateProfile(id, update)
-// 		.then(customer => res.status(200).json(customer))
-// 		.catch(err => res.status(500).json(err));
+// 	Users.updateUser(user_id, update)
+// 		.then(user => res.status(200).json({message: 'User has been updated', user}))
+// 		.catch(err => res.status(500).json({message: `Sorry that didn't work ${err}`}));
+// });
+
+// router.delete("/:user_id", authenticate, verify_user, (req, res) => {
+// 	const user_id = req.params;
+
+// 	Users.deleteUser(parseInt(user_id)
+// 		.then(user => res.status(200).json({message: 'User has been deleted', user}))
+// 		.catch(err => res.status(500).json({message: `Sorry that didn't work ${err}`}));
 // });
 
 //Get all of a customer's favorites
