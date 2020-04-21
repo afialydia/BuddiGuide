@@ -17,9 +17,9 @@ server.use("/api/strains", strainRouter);
 server.use("/api/users", userRouter);
 
 
-server.get("/", (req, res) => {
-	res.status(200).json({ status: "I'm alive and on fire :fireball:" });
-});
+// server.get("/", (req, res) => {
+// 	res.status(200).json({ status: "I'm alive and on fire :fireball:" });
+// });
 
 if (process.env.NODE_ENV === 'production') {
 	// Set static   
