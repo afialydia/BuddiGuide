@@ -8,25 +8,25 @@ exports.up = function (knex) {
 			"Okay",
 			"Not a Fan",
 			"Hated It"
-		]).notNullable().defaultTo("Just Okay");
+		]).defaultTo("Just Okay");
 
 		t.boolean("have_tried").defaultTo(false);
 
-		t.text("notes", 3000).notNullable();
+		t.text("notes", 3000).defaultTo('How was it?');
 
 		t.integer("user_id")
 			.unsigned()
 			.references("users.id")
 			.notNullable()
-			.onUpdate("CASCADE")
-			.onDelete("CASCADE");
+			.onUpdate("NO ACTION")
+			.onDelete("NO ACTION");
 
 		t.integer("strain_id")
 			.unsigned()
 			.references("strains.id")
 			.notNullable()
-			.onUpdate("CASCADE")
-			.onDelete("CASCADE");
+			.onUpdate("NO ACTION")
+			.onDelete("NO ACTION");
 	});
 };
 

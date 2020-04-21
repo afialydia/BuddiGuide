@@ -10,12 +10,11 @@ server.use(cors());
 server.use(express.json());
 server.use(express.static(path.join(__dirname, "client/build")));
 
-const curlyQRouter = require("./api/routes/curliQ/Q-router");
+const strainRouter = require("./api/routes/strain_router");
+const userRouter = require("./api/routes/user_router");
 
-
-
-server.use("/api/buds", curlyQRouter);
-
+server.use("/api/strains", strainRouter);
+server.use("/api/users", userRouter);
 
 
 server.get("/", (req, res) => {
