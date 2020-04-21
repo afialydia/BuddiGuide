@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const Strains = require("../models/strain_model");
 const authenticate = require("../middleware/authenticate");
-const { jwtSecret } = require("../middleware/config");
 
 router.get("/", (req, res) => {
 	Strains.findAllStrains()
@@ -25,7 +24,7 @@ router.get("/:id", (req, res) => {
 router.post("/:strain_id",
  authenticate, (req, res) => {
 	 const {strain_id} = req.params
-	const favorite = {...req.body, strain_id};
+	 const favorite = {...req.body, strain_id};
 
 	Strains.createFavorite(favorite)
 		.then(console.log(favorite))

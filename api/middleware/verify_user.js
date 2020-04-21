@@ -1,7 +1,7 @@
 const Users = require("../models/user_model");
 
 module.exports = (req, res, next) => {
-	const  {user_id}  = req.params;
+	let  {user_id}  = req.params 
 	Users.findById(user_id)
 		.then((user) => {
 			if (!user) {
