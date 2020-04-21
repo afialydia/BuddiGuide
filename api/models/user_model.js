@@ -7,14 +7,14 @@ module.exports = {
 	getFavorites,
 	getFavoriteById,
 	updateFavorite,
-	deleteFavorite
+	deleteFavorite,
 };
 
 //user crud
 async function create(user) {
 	const [id] = await db("users").insert(user, "id");
 
-	return findUser(id);
+	return findById(id);
 }
 
 function findBy(filter) {
@@ -28,17 +28,42 @@ function findById(id) {
 //favorites crud
 
 function getFavorites(user_id) {
-	return db("favorites").where({user_id});
+	const faves = db("favorites")
+		.select(
+			"f.fid",
+			"s.strain as strain",
+			"f.have_tried",
+			"f.personal_rating",
+			"f.notes"
+		)
+		.from("favorites as f")
+		.join("strains as s", "s.id", "f.strain_id")
+		.where({ user_id });
+
+	return faves;
 }
 
-function getFavoriteById(id) {
-	return db("favorites").where({ id }).first();
+function getFavoriteById(user_id, fid) {
+
+	const faves = db("favorites")
+		.select(
+			"f.fid as favorite_id",
+			"s.strain as strain",
+			"f.have_tried",
+			"f.personal_rating",
+			"f.notes"
+		)
+		.from("favorites as f")
+		.join("strains as s", "s.id", "f.strain_id")
+		.where({ user_id }).where({fid})
+	
+	return faves
 }
 
-function updateFavorite(id, update) {
-	return db("favorites").where({ id }).update(update);
+function updateFavorite(fid, update) {
+	return db("favorites").where({ fid }).update(update);
 }
 
-function deleteFavorite(id){
-	return db('favorites').where({id}).del()
+function deleteFavorite(fid) {
+	return db("favorites").where({ fid }).del();
 }

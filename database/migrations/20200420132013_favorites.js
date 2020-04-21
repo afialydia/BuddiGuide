@@ -1,6 +1,6 @@
 exports.up = function (knex) {
 	return knex.schema.createTable("favorites", (t) => {
-		t.increments("id").primary();
+		t.increments("fid").primary();
 
 		t.enu("personal_rating", [
 			"Loved It",
