@@ -16,11 +16,6 @@ const userRouter = require("./api/routes/user_router");
 server.use("/api/strains", strainRouter);
 server.use("/api/users", userRouter);
 
-
-// server.get("/", (req, res) => {
-// 	res.status(200).json({ status: "I'm alive and on fire :fireball:" });
-// });
-
 if (process.env.NODE_ENV === 'production') {
 	// Set static   
 	server.use(express.static('client/build'));
