@@ -1,4 +1,5 @@
 import React from "react";
+import '../page/homepage.styles.css'
 
 export const SearchBar = ({ placeholder, handleChange }) => (
 	<input

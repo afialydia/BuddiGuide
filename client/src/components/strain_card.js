@@ -13,11 +13,13 @@ export const Card = ({ strain }) => {
 						<div>
 							<h3>{strain.strain.toUpperCase()}</h3>
 							<h6>{strain.type.toUpperCase()}</h6>
-							<i>{strain.effects}</i><br></br>
+							<i>{strain.effects}</i>
+							<br></br>
 							{/* <p>{strain.id}</p> */}
 						</div>
 					) : (
 						<div>
+							<h5>{strain.strain.toUpperCase()}</h5>
 							<h6>{strain.flavor}</h6>
 							<p>{strain.description}</p>
 						</div>
@@ -28,16 +30,19 @@ export const Card = ({ strain }) => {
 	} else if (strain.type === "hybrid") {
 		return (
 			<div className="card-container hybrid" onClick={back}>
-				<div className="strain-card" >
+				<div className="strain-card">
 					{front ? (
 						<div>
 							<h3>{strain.strain.toUpperCase()}</h3>
 							<h6>{strain.type.toUpperCase()}</h6>
-							<i>{strain.effects}</i><br></br>
+							<i>{strain.effects}</i>
+							<br></br>
 							{/* <p>{strain.id}</p> */}
 						</div>
 					) : (
 						<div>
+							<h5>{strain.strain.toUpperCase()}</h5>
+
 							<h6>{strain.flavor}</h6>
 							<p>{strain.description}</p>
 						</div>
@@ -53,11 +58,13 @@ export const Card = ({ strain }) => {
 						<div>
 							<h3>{strain.strain.toUpperCase()}</h3>
 							<h6>{strain.type.toUpperCase()}</h6>
-							<i>{strain.effects}</i><br></br>
+							<i>{strain.effects}</i>
+							<br></br>
 							{/* <p>{strain.id}</p> */}
 						</div>
 					) : (
 						<div>
+							<h5>{strain.strain.toUpperCase()}</h5>
 							<h6>{strain.flavor}</h6>
 							<p>{strain.description}</p>
 						</div>
