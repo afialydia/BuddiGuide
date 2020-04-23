@@ -6,6 +6,7 @@ import '../page/homepage.styles.css'
 export const StrainContainer = (props) => {
 	console.log(props)
 	let strains = props.strains
+
 	return (
 		<div className="strain-container">
 			{strains.map((strain) => (

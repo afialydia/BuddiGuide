@@ -5,6 +5,7 @@ h4,
 h5,
 h6 {
 	font-family: "Nunito", sans-serif;
+	color: rgb(244, 246, 222);
 }
 
 h6 {
@@ -16,19 +17,24 @@ h3 {
 }
 
 .strain-home {
+	/* border: solid; */
 	background: rgb(244, 246, 222);
-	/* color: rgb(223,250,180); */
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	width: 98vw;
+	height: auto;
 }
 
 .strain-container {
 	/* border:solid red; */
 	width: 85vw;
-	margin: 0 auto;
+	max-width: 1600px;
+	margin: auto;
+	margin-top: 10vh;
 	display: flex;
 	flex-wrap: wrap;
-	/* align-items: center; */
 	align-items: flex-start;
-	flex-wrap: wrap;
 	width: 100%;
 }
 .card-container.sativa {
@@ -49,12 +55,10 @@ h3 {
 	border-radius: 4px;
 	font-family: "Montserrat", sans-serif;
 	position: relative;
-	height: 30vw;
+	height: 25vw;
 	width: calc((100% - 160px) / 4);
 	margin: 20px;
 	letter-spacing: -0.02em;
-	box-shadow: 0px 2px 4px;
-
 }
 
 .strain-card {
@@ -62,7 +66,7 @@ h3 {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
-	justify-content: space-between ;
+	justify-content: space-between;
 	width: 85%;
 	height: auto;
 	margin: 2% auto;
@@ -71,16 +75,52 @@ h3 {
 }
 
 .strain-card p {
+	/* border: solid; */
 	font-size: 1rem;
-	height: auto;
+	width: 100%;
 	height: calc((100%) / 1.85);
 	overflow-y: auto;
 	margin: auto 0;
 	text-align: justify;
 	font-family: "Montserrat", sans-serif;
+	padding-bottom: 1%;
 }
 ::-webkit-scrollbar {
 	display: none;
-  }
+}
 
-  
+.search {
+	width: 65vw;
+	margin: 1%;
+	display: flex;
+	justify-self: right;
+	padding: 0.25%;
+	border: none;
+	border-radius: 12px;
+	font-size: 1.3rem;
+	font-family: "Montserrat", sans-serif;
+	padding: 8px 20px;
+	box-sizing: border-box;
+	background:  rgb(244, 246, 222);
+	color: rgb(55, 87, 34);
+}
+
+.search-container {
+line-height: 5vh;
+	display: flex;
+	align-self: center;
+	justify-content: flex-end;
+	position: fixed;
+	z-index: 1;
+	width: 85vw;
+	border-radius: 6px;
+	margin: 0 auto;
+	background: rgb(174, 179, 42);
+}
+
+.search-container img{
+	z-index: 1.99;
+	margin: 0 auto;
+	height: 
+}
+

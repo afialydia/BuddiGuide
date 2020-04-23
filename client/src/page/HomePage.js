@@ -5,32 +5,42 @@ import { getStrains } from "../redux/strains/strain.selectors";
 import { SearchBar } from "../components/search_bar";
 import { StrainContainer } from "../components/strain_container";
 import { getAllStrains } from "../redux/strains/strain.actions";
-import './homepage.styles.css'
-
+import buddi from '../assets/buddi.svg'
+import "./homepage.styles.css";
 
 const HomePage = ({ strains, getAllStrains }) => {
 	const [searchField, setSearchField] = useState("");
-	const [results, setResults] = useState([]);
+	const [strainType, setStrainType] = useState('');
 
 	const handleChange = (e) => {
 		setSearchField(e.target.value);
 	};
 	useEffect(() => {
 		getAllStrains();
-    }, []);
-    
-    let allStrains = strains
+	}, []);
+
+	let allStrains = strains;
 	// console.log(allStrains);
-	console.log(searchField)
-	
-	const filteredStrains = strains.filter(strain =>
+	console.log(searchField);
+	// let strainSort = (strainType)=> allStrains.filter((strain) => strain.type === strainType);
+
+	// const sortedStrains = (allStrains) => {
+	// 	 allStrains = strainSort("sativa")
+	// 	 return console.log(allStrains);
+	// };
+
+	const filteredStrains = allStrains.filter((strain) =>
 		strain.strain.toLowerCase().includes(searchField.toLowerCase())
 	);
-  
+
 	console.log(filteredStrains);
 	return (
 		<div className="strain-home">
-			<SearchBar placeholder="Enter a effect" handleChange={handleChange} />
+			<div className="search-container">
+				<img src={buddi}/>
+				<h2>Hey There, Buddi Guide</h2>
+				<SearchBar placeholder="Search Strains By Name..." handleChange={handleChange} />
+			</div>
 			<StrainContainer strains={filteredStrains} />
 		</div>
 	);

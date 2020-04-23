@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 
 export const Card = ({ strain }) => {
 	const [front, back] = useToggle(true);
+
+
 	if (strain.type === "sativa") {
 		return (
 			<div className="card-container sativa" onClick={back}>
