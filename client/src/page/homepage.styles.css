@@ -12,7 +12,7 @@ h6 {
 	font-size: 1rem;
 }
 h3 {
-	font-size: 2rem;
+	font-size: 1.5rem;
 	/* text-align: left; */
 }
 
@@ -55,14 +55,26 @@ h3 {
 	border-radius: 4px;
 	font-family: "Montserrat", sans-serif;
 	position: relative;
-	height: 25vw;
+	height: 28vw;
 	width: calc((100% - 160px) / 4);
 	margin: 20px;
 	letter-spacing: -0.02em;
 }
 
+.fas.fa-heart  {
+	cursor: pointer;
+	height: 15px;
+	padding-right: 1%;
+	margin: 5% -4%;
+	z-index: 1;
+}
+
+.fas.fa-heart:hover{
+	color: rgb(174, 179, 42);
+}
 .strain-card {
 	/* border: solid salmon; */
+	box-sizing: border-box;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
@@ -79,6 +91,7 @@ h3 {
 	font-size: 1rem;
 	width: 100%;
 	height: calc((100%) / 1.85);
+	max-height:30vh;
 	overflow-y: auto;
 	margin: auto 0;
 	text-align: justify;
@@ -91,36 +104,45 @@ h3 {
 
 .search {
 	width: 65vw;
+	height: 5vh;
 	margin: 1%;
 	display: flex;
 	justify-self: right;
-	padding: 0.25%;
+	/* padding: 0.25%; */
 	border: none;
 	border-radius: 12px;
-	font-size: 1.3rem;
+	font-size: 1rem;
 	font-family: "Montserrat", sans-serif;
 	padding: 8px 20px;
 	box-sizing: border-box;
-	background:  rgb(244, 246, 222);
+	background: rgb(244, 246, 222);
 	color: rgb(55, 87, 34);
 }
 
 .search-container {
-line-height: 5vh;
+	line-height: 5vh;
+	height: 10vh;
 	display: flex;
 	align-self: center;
 	justify-content: flex-end;
 	position: fixed;
-	z-index: 1;
+	z-index: 2;
 	width: 85vw;
 	border-radius: 6px;
 	margin: 0 auto;
 	background: rgb(174, 179, 42);
 }
 
-.search-container img{
+.search-container img {
 	z-index: 1.99;
 	margin: 0 auto;
-	height: 
+	padding-top: 1%;
+	/* width: 40px; */
+	height: 80%;
+	/* border: solid; */
 }
 
+.search-container h3 {
+	font-size: 1rem;
+	/* border: solid; */
+}

@@ -18,19 +18,18 @@ export const fetchFaves = user => dispatch => {
 		);
 };
 
-export const addFave = (credentials, props) => dispatch => {
-	console.log("creds", credentials);
-	console.log('propz',props)
+export const addFave = (props) => dispatch => {
+	console.log(props)
+
+	// console.log('propz',props)
 	dispatch({ type: FavoriteTypes.POST_FAVE_START });
 	axios
-		.post("/api/strains/24", {user_id:3, personal_rating:"Loved It"})
+		.post(`api/strains/${props.id}`, {user_id:`${props.user_id}`, personal_rating:"Have Not Tried Yet"})
 		// , credentials, {
 		// 	headers: credentials
 		// })
 
 		.then(response => {
-			// const token = response.data.token;
-			// localStorage.setItem("token", token);
 			dispatch({
 				type: FavoriteTypes.POST_FAVE_SUCCESS,
 				payload: response.data.favorite

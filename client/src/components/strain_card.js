@@ -2,10 +2,12 @@ import React from "react";
 import "../page/homepage.styles.css";
 import useToggle from "../hooks/use_toggle";
 import { Link } from "react-router-dom";
+import heart from "../assets/heart.svg";
+import FavoriteStrain from './favorite'
+import { StrainContainer } from "./strain_container";
 
 export const Card = ({ strain }) => {
 	const [front, back] = useToggle(true);
-
 
 	if (strain.type === "sativa") {
 		return (
@@ -26,6 +28,7 @@ export const Card = ({ strain }) => {
 							<p>{strain.description}</p>
 						</div>
 					)}
+					<FavoriteStrain id={strain.id} />
 				</div>
 			</div>
 		);
@@ -49,6 +52,7 @@ export const Card = ({ strain }) => {
 							<p>{strain.description}</p>
 						</div>
 					)}
+					<FavoriteStrain id={strain.id} />
 				</div>
 			</div>
 		);
@@ -71,6 +75,7 @@ export const Card = ({ strain }) => {
 							<p>{strain.description}</p>
 						</div>
 					)}
+					<FavoriteStrain id={strain.id} />
 				</div>
 			</div>
 		);

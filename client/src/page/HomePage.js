@@ -21,7 +21,7 @@ const HomePage = ({ strains, getAllStrains }) => {
 
 	let allStrains = strains;
 	// console.log(allStrains);
-	console.log(searchField);
+	// console.log(searchField);
 	// let strainSort = (strainType)=> allStrains.filter((strain) => strain.type === strainType);
 
 	// const sortedStrains = (allStrains) => {
@@ -33,12 +33,12 @@ const HomePage = ({ strains, getAllStrains }) => {
 		strain.strain.toLowerCase().includes(searchField.toLowerCase())
 	);
 
-	console.log(filteredStrains);
+	// console.log(filteredStrains);
 	return (
 		<div className="strain-home">
 			<div className="search-container">
 				<img src={buddi}/>
-				<h2>Hey There, Buddi Guide</h2>
+				<h3>Hey There, Buddi Guide</h3>
 				<SearchBar placeholder="Search Strains By Name..." handleChange={handleChange} />
 			</div>
 			<StrainContainer strains={filteredStrains} />
