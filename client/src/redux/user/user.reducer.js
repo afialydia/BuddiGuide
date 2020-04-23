@@ -1,11 +1,11 @@
-import { UserTypes } from "./user.types.types";
+import { UserTypes } from "./user.types";
 import jwt from "jsonwebtoken";
 
 const INITIAL_STATE = {
 	addingUser: false,
-	addedUser: false,
+    addedUser: false,
 	isLoggedIn: false,
-	isLoggingIn: false,
+    isLoggingIn: false,
 	loggingOut: false,
 	loggedOut: false,
 	token: null,
@@ -46,7 +46,6 @@ const user_reducer = (state = INITIAL_STATE, action) => {
 		case UserTypes.LOGIN_SUCCESS:
 			return {
 				...state,
-
 				token: action.payload.token,
 				user: jwt.decode(localStorage.getItem("token")),
 				isLoggingIn: false,
@@ -84,3 +83,5 @@ const user_reducer = (state = INITIAL_STATE, action) => {
 			return state;
 	}
 };
+
+export default user_reducer

@@ -18,7 +18,7 @@ router.post("/register", verify_cred, verify_unique, (req, res) => {
 
 	Users.create(user)
 		.then((saved) => {
-			res.status(201).json({ saved });
+			res.status(201).json( {saved} );
 		})
 		.catch((err) => {
 			res.status(500).json(err);
@@ -81,7 +81,9 @@ router.get("/:user_id", authenticate, verify_user, (req, res) => {
 // });
 
 //Get all of a customer's favorites
-router.get("/:user_id/favorites", authenticate, verify_user, (req, res) => {
+router.get("/:user_id/favorites", 
+// authenticate, 
+verify_user, (req, res) => {
 	const { user_id } = req.params;
 	Users.getFavorites(user_id)
 		.then((favorites) => {
@@ -95,7 +97,9 @@ router.get("/:user_id/favorites", authenticate, verify_user, (req, res) => {
 });
 
 //get favorite by id
-router.get("/:user_id/favorites/:fid", authenticate, verify_user, (req, res) => {
+router.get("/:user_id/favorites/:fid", 
+// authenticate,
+ verify_user, (req, res) => {
 	const { user_id, fid } = req.params;
 
 	Users.getFavoriteById(user_id, fid)
@@ -116,7 +120,7 @@ router.get("/:user_id/favorites/:fid", authenticate, verify_user, (req, res) => 
 //Allows a user to update a favorite by id
 router.put(
 	"/:user_id/favorites/:fid",
-	authenticate,
+	// authenticate,
 	verify_user,
 	verify_ownership,
 	(req, res) => {
@@ -135,7 +139,7 @@ router.put(
 // //Delete a user's favorite by id
 router.delete(
 	"/:user_id/favorites/:fid",
-	authenticate,
+	// authenticate,
 	verify_user,
 	verify_ownership,
 	(req, res) => {
