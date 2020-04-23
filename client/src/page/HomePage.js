@@ -9,7 +9,7 @@ import './homepage.styles.css'
 
 
 const HomePage = ({ strains, getAllStrains }) => {
-	const [searchField, setSearchField] = useState(" ");
+	const [searchField, setSearchField] = useState("");
 	const [results, setResults] = useState([]);
 
 	const handleChange = (e) => {
@@ -22,24 +22,16 @@ const HomePage = ({ strains, getAllStrains }) => {
     let allStrains = strains
 	// console.log(allStrains);
 	console.log(searchField)
-
-    // allStrains.filter(strain => console.log(strain.effects.includes(["sleepy"])))
-	// // let stylists = users.filter(user => {
-	// // 	if (user.userType === 1) {
-	// // 		return user;
-	// // 	}
-	// // });
-
-	// const filteredStrains = allStrains.filter((strain) => {
-	// 	strain.effects.includes(["sleepy"]);
-    // });
-    
+	
+	const filteredStrains = strains.filter(strain =>
+		strain.strain.toLowerCase().includes(searchField.toLowerCase())
+	);
   
-	// console.log(filteredStrains);
+	console.log(filteredStrains);
 	return (
 		<div className="strain-home">
 			<SearchBar placeholder="Enter a effect" handleChange={handleChange} />
-			<StrainContainer strains={allStrains} />
+			<StrainContainer strains={filteredStrains} />
 		</div>
 	);
 };
