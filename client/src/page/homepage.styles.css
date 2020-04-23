@@ -47,7 +47,6 @@ h3 {
 	/* border:solid; */
 	color: rgb(244, 246, 222);
 	border-radius: 4px;
-	width: calc((100% - 160px) / 4);
 	font-family: "Montserrat", sans-serif;
 	position: relative;
 	height: 30vw;
@@ -81,3 +80,5 @@ h3 {
 ::-webkit-scrollbar {
 	display: none;
   }
+
+  
