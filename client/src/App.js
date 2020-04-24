@@ -1,15 +1,24 @@
-import React from 'react';
-import './App.css';
-import HomePage from './page/HomePage';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import "./App.css";
+import HomePage from "./page/HomePage";
+import LogIn from "./page/LogIn";
 
 function App() {
-  return (
-    <div className="App">
-     {/* <HomePage/> */}
+	return (
+		<div className="App">
+		{/* <Header /> */}
+		<Switch>
+			<Route exact path="/" component={HomePage} />
+			{/* <Route path="/register" component={Registration} /> */}
+			<Route path="/login" component={LogIn} />
+			{/* <PrivateRoute path="/explore" component={Explore} /> */}
+			{/* <PrivateRoute exact path="/edit" component={Home} /> */}
 
-
-    </div>
-  );
+			{/* <PrivateRoute path="/stylist/:id" component={Profile} /> */}
+		</Switch>
+	</div>
+);
 }
 
 export default App;

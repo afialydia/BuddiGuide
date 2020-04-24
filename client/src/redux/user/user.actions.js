@@ -19,16 +19,10 @@ export const registerUser = (user) => (dispatch) => {
 		);
 };
 
-export const loginUser = (credentials, props) => (dispatch) => {
-	console.log("creds", credentials);
-	console.log("propz", props);
+export const loginUser = (credentials,props) => (dispatch) => {
 	dispatch({ type: UserTypes.LOGIN_START });
 	axios
-		.post("/api/users/login", { username: "TobinLow", password: "nancy" })
-		//  credentials, {
-		// 	headers: credentials
-		// })
-
+		.post("/api/users/login", credentials)
 		.then((response) => {
 			const token = response.data.token;
 			localStorage.setItem("token", token);
@@ -36,6 +30,7 @@ export const loginUser = (credentials, props) => (dispatch) => {
 				type: UserTypes.LOGIN_SUCCESS,
 				payload: response.data,
 			});
+			props.push('/')
 		})
 
 		.catch((err) =>
