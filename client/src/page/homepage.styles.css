@@ -39,7 +39,7 @@ h3 {
 
 .center {
 	margin: 0 auto;
-	border:solid;
+	/* border:solid; */
 	justify-content: center;
 	display: flex;
 	flex-wrap: wrap;
