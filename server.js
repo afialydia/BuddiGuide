@@ -1,10 +1,11 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
 const helmet = require("helmet");
 
 const server = express();
-require("dotenv").config();
+
 
 server.use(helmet());
 server.use(cors());

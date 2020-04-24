@@ -3,8 +3,11 @@ require("dotenv").config();
 module.exports = {
 	development: {
 		client: "pg",
-		useNullAsDefault: true,
 		connection: process.env.DB_URL,
+		pool: {
+			min: 2,
+			max: 15,
+		},
 		migrations: {
 			directory: "./database/migrations",
 		},
@@ -17,7 +20,6 @@ module.exports = {
 		connection: {
 			filename: "./cypress/server_test.spec.js",
 		},
-		useNullAsDefault: true,
 		migrations: {
 			directory: "./database/migrations",
 		},
@@ -27,10 +29,9 @@ module.exports = {
 	},
 	production: {
 		client: "pg",
-		useNullAsDefault: true,
 		connection: process.env.DB_URL,
 		pool: {
-			min: 0,
+			min: 2,
 			max: 15,
 		},
 		migrations: {
