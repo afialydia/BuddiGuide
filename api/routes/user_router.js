@@ -21,7 +21,7 @@ router.post("/register", verify_cred, verify_unique, (req, res) => {
 			res.status(201).json( {saved} );
 		})
 		.catch((err) => {
-			res.status(500).json(err);
+			res.status(500).json({message:`looks like something broke in the router ${err}`});
 		});
 });
 
@@ -49,7 +49,7 @@ router.post("/login", verify_cred, (req, res) => {
 		.catch((error) => {
 			res
 				.status(500)
-				.json({ message: "Sorry bud, there's an issue with login:", error });
+				.json({ message:`Sorry bud, there's an issue with login: ${error}`});
 		});
 });
 
@@ -59,7 +59,7 @@ router.get("/:user_id", authenticate, verify_user, (req, res) => {
 
 	Users.findById(user_id)
 		.then((user) => res.status(200).json(user))
-		.catch((err) => res.status(500).json(err));
+		.catch((err) => res.status(500).json({message:`looks like something broke in the router ${err}`}));
 });
 
 // //Update user profile

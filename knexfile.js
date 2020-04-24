@@ -11,9 +11,7 @@ module.exports = {
 		seeds: {
 			directory: "./database/seeds",
 		},
-		seeds: {
-			directory: "./database/seeds",
-		},
+		
 	},
 	testing: {
 		client: "cypress",
