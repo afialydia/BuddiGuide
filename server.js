@@ -17,7 +17,6 @@ server.use("/api/strains", strainRouter);
 server.use("/api/users", userRouter);
 
 if (process.env.NODE_ENV === 'production') {
-	require("dotenv").config();
 
 	// Set static   
 	server.use(express.static('client/build'));

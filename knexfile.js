@@ -31,8 +31,8 @@ module.exports = {
 		connection: process.env.DB_URL,
 		pool: {
 			min: 0,
-			max: 15
-		  },
+			max: 15,
+		},
 		migrations: {
 			directory: "./database/migrations",
 		},
