@@ -11,7 +11,6 @@ module.exports = {
 		seeds: {
 			directory: "./database/seeds",
 		},
-		
 	},
 	testing: {
 		client: "cypress",
@@ -30,6 +29,10 @@ module.exports = {
 		client: "pg",
 		useNullAsDefault: true,
 		connection: process.env.DB_URL,
+		pool: {
+			min: 0,
+			max: 15
+		  },
 		migrations: {
 			directory: "./database/migrations",
 		},
