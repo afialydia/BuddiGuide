@@ -5,12 +5,13 @@ import { getStrains } from "../redux/strains/strain.selectors";
 import { SearchBar } from "../components/search_bar";
 import { StrainContainer } from "../components/strain_container";
 import { getAllStrains } from "../redux/strains/strain.actions";
-import buddi from '../assets/buddi.svg'
+import buddi from "../assets/buddi.svg";
 import "./homepage.styles.css";
+import Buddi_Menu from "../components/buddi_menu";
 
 const HomePage = ({ strains, getAllStrains }) => {
 	const [searchField, setSearchField] = useState("");
-	const [strainType, setStrainType] = useState('');
+	const [strainType, setStrainType] = useState("");
 
 	const handleChange = (e) => {
 		setSearchField(e.target.value);
@@ -36,10 +37,15 @@ const HomePage = ({ strains, getAllStrains }) => {
 	// console.log(filteredStrains);
 	return (
 		<div className="strain-home">
-			<div className="search-container">
-				<img src={buddi}/>
-				<h3>Hey There, Buddi Guide</h3>
-				<SearchBar placeholder="Search Strains By Name..." handleChange={handleChange} />
+			<div className="header-container">
+				<Buddi_Menu />{" "}
+				<div className="search-container">
+					<h3>Hey There, Buddi Guide</h3>
+					<SearchBar
+						placeholder="Search Strains By Name..."
+						handleChange={handleChange}
+					/>
+				</div>
 			</div>
 			<StrainContainer strains={filteredStrains} />
 		</div>

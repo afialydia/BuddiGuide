@@ -18,7 +18,10 @@ router.post("/register", verify_cred, verify_unique, (req, res) => {
 
 	Users.create(user)
 		.then((saved) => {
-			res.status(201).json( {saved} );
+			const token = signToken(saved)
+			res.status(201).json( {	token,
+				saved,
+				message: `Welcome ${saved.username}!`,} );
 		})
 		.catch((err) => {
 			res.status(500).json({message:`looks like something broke in the router ${err}`});
@@ -160,7 +163,7 @@ router.delete(
 
 function signToken(user) {
 	const payload = {
-		subject: user.id,
+		id: user.id,
 		username: user.username,
 	};
 

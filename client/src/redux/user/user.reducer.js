@@ -3,9 +3,9 @@ import jwt from "jsonwebtoken";
 
 const INITIAL_STATE = {
 	addingUser: false,
-    addedUser: false,
+	addedUser: false,
 	isLoggedIn: false,
-    isLoggingIn: false,
+	isLoggingIn: false,
 	loggingOut: false,
 	loggedOut: false,
 	token: null,
@@ -27,7 +27,10 @@ const user_reducer = (state = INITIAL_STATE, action) => {
 				...state,
 				addingUser: false,
 				addedUser: true,
-				user: action.payload.user,
+				token: action.payload.token,
+				user: jwt.decode(localStorage.getItem("token")),
+				isLoggingIn: false,
+				isLoggedIn: true,
 				error: "",
 			};
 		case UserTypes.REGISTER_FAIL:
@@ -84,4 +87,4 @@ const user_reducer = (state = INITIAL_STATE, action) => {
 	}
 };
 
-export default user_reducer
+export default user_reducer;
