@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 import { selectAllFaves } from "../redux/favorites/favorites.selectors";
-import { SearchBar } from "../components/search_bar";
+
 import { getUserId } from "../redux/user/user.selectors";
 import "./homepage.styles.css";
-import Buddi_Menu from "../components/buddi_menu";
 import { fetchFaves } from "../redux/favorites/favorites.actions";
 import { FavoritesContainer } from "../components/favorite_container";
+import { Header } from "../components/header";
 
-const FavoritesPage = ({ strains, getAllFavorites,user_id }) => {
+const FavoritesPage = ({ strains, getAllFavorites, user_id }) => {
 	const [searchField, setSearchField] = useState("");
 	const [strainType, setStrainType] = useState("");
 
@@ -37,16 +37,8 @@ const FavoritesPage = ({ strains, getAllFavorites,user_id }) => {
 	// console.log(filteredStrains);
 	return (
 		<div className="strain-home">
-			<div className="header-container">
-				<Buddi_Menu />{" "}
-				<div className="search-container">
-					<h3>Hey There, Buddi Guide</h3>
-					<SearchBar
-						placeholder="Search Strains By Name..."
-						handleChange={handleChange}
-					/>
-				</div>
-			</div>
+			<Header handleChange={handleChange} />
+
 			<FavoritesContainer strains={filteredStrains} />
 		</div>
 	);
@@ -55,7 +47,6 @@ const FavoritesPage = ({ strains, getAllFavorites,user_id }) => {
 const mapStateToProps = createStructuredSelector({
 	strains: selectAllFaves,
 	user_id: getUserId,
-
 });
 
 const mapDispatchToProps = (dispatch) => ({

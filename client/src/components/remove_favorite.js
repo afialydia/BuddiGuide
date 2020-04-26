@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { deleteFave } from "../redux/favorites/favorites.actions";
+import { deleteFave, fetchFaves } from "../redux/favorites/favorites.actions";
 import { getUserId } from "../redux/user/user.selectors";
 
 const RemoveFavorite = ({ fid, deleteFave, user_id},props) => {
-
 	console.log(fid, user_id)
 	return <i onClick={() => deleteFave({fid,user_id},props)} class="fas fa-times"></i>
 

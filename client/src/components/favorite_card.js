@@ -3,7 +3,7 @@ import React from "react";
 import RemoveFavorite from "./remove_favorite";
 import "../page/homepage.styles.css";
 
-export const FavoritesCard = ({ strain }) => {
+export const FavoritesCard = ({ strain },props) => {
 	// console.log(strain)
 	if (strain.type === "sativa") {
 		return (

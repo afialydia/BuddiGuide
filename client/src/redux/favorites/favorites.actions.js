@@ -107,6 +107,9 @@ export const deleteFave = ({fid, user_id},props) => dispatch => {
 				payload: response.data
 			});
 
+			dispatch(fetchFaves(user_id));
+
+
 		})
 
 		.catch(err =>
