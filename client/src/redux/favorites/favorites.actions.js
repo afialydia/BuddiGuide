@@ -5,7 +5,7 @@ import axios from "axios";
 export const fetchFaves = user => dispatch => {
 	dispatch({ type: FavoriteTypes.GET_FAVES_START });
 	axios
-		.get(`/api/users/2/favorites`)
+		.get(`/api/users/${user}/favorites`)
     .then(response =>
       {
 			dispatch({
@@ -90,12 +90,11 @@ export const editFave = (credentials, props) => dispatch => {
 };
 
 
-export const deleteFave = (credentials, props) => dispatch => {
-	console.log("creds", credentials);
-	console.log('propz',props)
+export const deleteFave = ({fid, user_id},props) => dispatch => {
+	 console.log(props)
 	dispatch({ type: FavoriteTypes.DELETE_FAVE_START });
 	axios
-		.delete("/api/users/2/favorites/4")
+		.delete(`/api/users/${user_id}/favorites/${fid}`)
 		// , credentials, {
 		// 	headers: credentials
 		// })
@@ -107,6 +106,7 @@ export const deleteFave = (credentials, props) => dispatch => {
 				type: FavoriteTypes.DELETE_FAVE_SUCCESS,
 				payload: response.data
 			});
+
 		})
 
 		.catch(err =>

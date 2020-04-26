@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {Link} from "react-router-dom"
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 import { getStrains } from "../redux/strains/strain.selectors";
@@ -38,7 +39,7 @@ const HomePage = ({ strains, getAllStrains }) => {
 	return (
 		<div className="strain-home">
 			<div className="header-container">
-				<Buddi_Menu />{" "}
+				<Link to="favorites" ><Buddi_Menu /></Link>
 				<div className="search-container">
 					<h3>Hey There, Buddi Guide</h3>
 					<SearchBar

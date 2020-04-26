@@ -44,6 +44,8 @@ function getFavorites(user_id) {
 		.select(
 			"f.fid",
 			"s.strain as strain",
+			"s.type",
+			"s.id as strain_id",
 			"f.have_tried",
 			"f.personal_rating",
 			"f.notes"

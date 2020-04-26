@@ -30,7 +30,7 @@ const favorite_reducer = (state = INITIAL_STATE, action) => {
 				...state,
 				fetchingFaves: false,
 				fetchedFaves: true,
-				faves: action.payload.faves,
+				faves: action.payload.favorites,
 				error: "",
 			};
 		case FavoriteTypes.GET_FAVES_FAIL:
