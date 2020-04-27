@@ -33,6 +33,7 @@ export const addFave = (props) => (dispatch) => {
 				type: FavoriteTypes.POST_FAVE_SUCCESS,
 				payload: response.data.favorite,
 			});
+			dispatch(fetchFaves(props.user_id));
 		})
 
 		.catch((err) =>
@@ -45,10 +46,8 @@ export const fetchFave = ({ fid, user_id }, props) => (dispatch) => {
 	dispatch({ type: FavoriteTypes.GET_FAVE_START });
 	axios
 		.get(`/api/users/${user_id}/favorites/${fid}`)
-		
 
 		.then((response) => {
-		
 			dispatch({
 				type: FavoriteTypes.GET_FAVE_SUCCESS,
 				payload: response.data.favorite,
@@ -76,7 +75,6 @@ export const editFave = ({ fid }, state) => (dispatch) => {
 				payload: response.data,
 			});
 			dispatch(fetchFaves(`${state.user_id}`));
-			
 		})
 
 		.catch((err) =>
@@ -89,10 +87,8 @@ export const deleteFave = ({ fid, user_id }, props) => (dispatch) => {
 	dispatch({ type: FavoriteTypes.DELETE_FAVE_START });
 	axios
 		.delete(`/api/users/${user_id}/favorites/${fid}`)
-	
 
 		.then((response) => {
-		
 			dispatch({
 				type: FavoriteTypes.DELETE_FAVE_SUCCESS,
 				payload: response.data,

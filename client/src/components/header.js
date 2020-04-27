@@ -20,6 +20,7 @@ export const Header = ({ handleChange }) => {
 					handleChange={handleChange}
 				/>
 			</div>
+			
 		</div>
 	);
 };

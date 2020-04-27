@@ -1,9 +1,38 @@
-import React from "react";
-import buddi from "../assets/buddi.svg";
-import '../page/homepage.styles.css'
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
-const Buddi_Menu = () => {
-	return <div className="menu"><img src={buddi} /></div>;
+import { fetchFaves } from "../redux/favorites/favorites.actions";
+import { getUserId } from "../redux/user/user.selectors";
+
+import {
+	selectAllFaves,
+	selectFaveAmount,
+} from "../redux/favorites/favorites.selectors";
+
+import buddi from "../assets/buddi.svg";
+import "../page/homepage.styles.css";
+
+const Buddi_Menu = ({ user_id, getAllFavorites, faves }) => {
+	useEffect(() => {
+		getAllFavorites(user_id);
+	}, []);
+
+	return (
+		<div className="menu">
+			<span className="fave-number">{faves}</span>
+			<img src={buddi} />
+		</div>
+	);
 };
 
-export default Buddi_Menu;
+const mapStateToProps = createStructuredSelector({
+	faves: selectFaveAmount,
+	user_id: getUserId,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+	getAllFavorites: (id) => dispatch(fetchFaves(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Buddi_Menu);

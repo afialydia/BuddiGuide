@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import FormInput from "../components/form_input";
 import { Form, FormGroup, Input, Label, Button } from "reactstrap";
 
-import { selectUser } from "../redux/user/user.selectors";
-import { selectFave } from "../redux/favorites/favorites.selectors";
 
 import { fetchFaves, editFave } from "../redux/favorites/favorites.actions";
 
@@ -30,6 +26,7 @@ const EditingModal = ({ fave, user_id, editFave, toggle }, props) => {
 		e.preventDefault();
 		const { have_tried, notes, personal_rating, fid, user_id, strain } = state;
 		console.log(user_id);
+		
 		editFave(
 			{ fid },
 			{ have_tried, notes, personal_rating, fid, user_id, strain }
@@ -39,8 +36,8 @@ const EditingModal = ({ fave, user_id, editFave, toggle }, props) => {
 	};
 
 	return (
-		<div className="form">
-			<i
+		<div className="edit-fave-container">
+			<div className="edit-fave"><i
 				onClick={async () => {
 					await toggle();
 				}}
@@ -81,17 +78,12 @@ const EditingModal = ({ fave, user_id, editFave, toggle }, props) => {
 
 				<Button className="button">Submit</Button>
 			</Form>
-		</div>
+			</div></div>
 	);
 };
-
-const mapStateToProps = createStructuredSelector({
-	// user: selectUser,
-	// fave: selectFave,
-});
 
 const mapDispatchToProps = (dispatch) => ({
 	editFave: ({ fid }, update) => dispatch(editFave({ fid }, update)),
 	fetchFaves: ({ user_id }) => dispatch(fetchFaves(user_id)),
 });
-export default connect(mapStateToProps, mapDispatchToProps)(EditingModal);
+export default connect(null, mapDispatchToProps)(EditingModal);

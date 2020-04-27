@@ -38,8 +38,6 @@ const EditFavorite = ({ fid, fetchFave, user_id, fave }, props) => {
 			<i
 				onClick={ () => {
 					orderedTog({ fid, user_id })
-					// fetchFave({ fid, user_id });
-					// await toggle();
 				}}
 				class="fas fa-pencil-alt"
 			></i>
