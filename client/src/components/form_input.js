@@ -5,6 +5,9 @@ const FormInput = ({ handleChange, label, ...otherProps }) => (
 			<h6>{label.toUpperCase()}</h6> <input className="input" onChange={handleChange} {...otherProps} />
 	
 	</div>
+
+	
+	
 );
 
 export default FormInput;

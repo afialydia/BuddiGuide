@@ -51,7 +51,7 @@ const favorite_reducer = (state = INITIAL_STATE, action) => {
 				...state,
 				fetchingFave: false,
 				fetchedFave: true,
-				fave: action.payload.fave,
+				fave: action.payload,
 				error: "",
 			};
 		case FavoriteTypes.GET_FAVE_FAIL:
@@ -92,7 +92,7 @@ const favorite_reducer = (state = INITIAL_STATE, action) => {
 				...state,
 				editingFave: false,
 				editedFave: true,
-				fave: action.payload,
+				// fave: action.payload,
 				error: "",
 			};
 		case FavoriteTypes.EDIT_FAVE_FAIL:
