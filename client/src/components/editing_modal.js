@@ -34,7 +34,7 @@ const EditingModal = ({ fave, user_id, editFave, toggle }, props) => {
 			{ fid },
 			{ have_tried, notes, personal_rating, fid, user_id, strain }
 		)
-	
+		toggle();
 
 	};
 
