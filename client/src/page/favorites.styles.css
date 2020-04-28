@@ -28,16 +28,15 @@
 
 .favorites-content {
 	/* border: solid orange; */
-	display:flex;
-	margin: 0 ;
-	flex-direction:column;
+	display: flex;
+	margin: 0;
+	flex-direction: column;
 	align-content: center;
-	text-align:center;
-
+	text-align: center;
 }
 
-.favorites-content p{
-	padding:1%;
+.favorites-content p {
+	padding: 1%;
 	margin: 2.5% auto;
 	/* border: solid red; */
 	min-height: 6vh;
@@ -46,31 +45,94 @@
 	align-content: center;
 	text-align: justify;
 	text-justify: inter-word;
-
-
 }
-
 
 .fas:hover {
 	color: rgb(174, 179, 42);
 	cursor: pointer;
-
 }
 
-.edit-fave{
+.edit-fave-container {
 	position: fixed;
 	display: flex;
 	flex-direction: column;
 	align-content: center;
-	padding: 3%;
-	z-index:3;
-	margin:3% auto;
-	background:  rgb(174, 179, 42);
+	padding: 2%;
+	z-index: 3;
+	margin: 0 auto;
+	background: rgb(174, 179, 42);
 	top: 100%;
 	left: 50%;
-	transform: translate(-50%, -70vh);
+	transform: translate(-50%, -80vh);
 	color: rgb(244, 246, 222);
-	width: 40vw;
-	height: 40vh;
+	width: auto;
+	height: auto;
+	border-radius: 6px;
+	/* box-shadow: 0 12px 16px 0 rgba(188, 70, 40, 0.24),
+		0 17px 50px 0 rgba(98, 0, 0, 0.19); */
 }
 
+.edit-fave {
+	position: relative;
+	display: flex;
+	font-family: "Nunito", sans-serif;
+	flex-direction: column;
+	align-content: center;
+	justify-content: space-between;
+	/* border: solid; */
+	margin: 0 auto;
+	width: 100%;
+	align-items: center;
+	color: rgb(244, 246, 222);
+}
+
+.edit-fave-container span {
+	position: relative;
+	margin: 0 auto;
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	
+	/* border: solid red; */
+}
+
+.fave-button {
+	font-family: "Nunito", sans-serif;
+
+	width: 100%;
+	border: none;
+	border-radius: 6px;
+	color: rgb(244, 246, 222);
+	background: rgb(55, 87, 34);
+}
+
+.fave-button:hover {
+	/* box-shadow: 0 12px 16px 0 rgba(188, 70, 40, 0.24),
+		0 17px 50px 0 rgba(98, 0, 0, 0.19); */
+		cursor:pointer;
+}
+.fave-button:active {
+	background-color: rgb(98, 46, 71, 0.8);
+	transform: translateY(4px);
+}
+
+.fave-input {
+	font-family: "Montserrat", sans-serif;
+
+	width: 100%;
+	text-align: center;
+	border: none;
+	border-radius: 6px;
+	color: rgb(244, 246, 222);
+	/* font-weight: bold; */
+	background: rgb(55, 87, 34);
+}
+
+.fave-input.textarea::placeholder {
+	color: rgb(174, 179, 42, 0.6);
+}
+.fave-input.textarea {
+	height: 60px;
+	min-width: 20vw;
+	max-width: 340px;
+}
