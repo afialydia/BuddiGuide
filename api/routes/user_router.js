@@ -18,13 +18,15 @@ router.post("/register", verify_cred, verify_unique, (req, res) => {
 
 	Users.create(user)
 		.then((saved) => {
-			const token = signToken(saved)
-			res.status(201).json( {	token,
-				saved,
-				message: `Welcome ${saved.username}!`,} );
+			const token = signToken(saved);
+			res
+				.status(201)
+				.json({ token, saved, message: `Welcome ${saved.username}!` });
 		})
 		.catch((err) => {
-			res.status(500).json({message:`looks like something broke in the router ${err}`});
+			res
+				.status(500)
+				.json({ message: `looks like something broke in the router ${err}` });
 		});
 });
 
@@ -52,7 +54,7 @@ router.post("/login", verify_cred, (req, res) => {
 		.catch((error) => {
 			res
 				.status(500)
-				.json({ message:`Sorry bud, there's an issue with login: ${error}`});
+				.json({ message: `Sorry bud, there's an issue with login: ${error}` });
 		});
 });
 
@@ -62,7 +64,11 @@ router.get("/:user_id", authenticate, verify_user, (req, res) => {
 
 	Users.findById(user_id)
 		.then((user) => res.status(200).json(user))
-		.catch((err) => res.status(500).json({message:`looks like something broke in the router ${err}`}));
+		.catch((err) =>
+			res
+				.status(500)
+				.json({ message: `looks like something broke in the router ${err}` })
+		);
 });
 
 // //Update user profile
@@ -84,41 +90,53 @@ router.get("/:user_id", authenticate, verify_user, (req, res) => {
 // });
 
 //Get all of a customer's favorites
-router.get("/:user_id/favorites", 
-// authenticate, 
-verify_user, (req, res) => {
-	const { user_id } = req.params;
-	Users.getFavorites(user_id)
-		.then((favorites) => {
-			if (favorites[0]) {
-				res.status(200).json({ favorites });
-			} else {
-				res.status(200).json({ message: "User currently has no favorites." });
-			}
-		})
-		.catch((err) => res.status(500).json({message:`looks like something broke in the router ${err}`}));
-});
+router.get(
+	"/:user_id/favorites",
+	// authenticate,
+	verify_user,
+	(req, res) => {
+		const { user_id } = req.params;
+		Users.getFavorites(user_id)
+			.then((favorites) => {
+				if (favorites[0]) {
+					res.status(200).json({ favorites });
+				} else {
+					res
+						.status(200)
+						.json({ favorites, message: "User currently has no favorites." });
+				}
+			})
+			.catch((err) =>
+				res
+					.status(500)
+					.json({ message: `looks like something broke in the router ${err}` })
+			);
+	}
+);
 
 //get favorite by id
-router.get("/:user_id/favorites/:fid", 
-// authenticate,
- verify_user, (req, res) => {
-	const { user_id, fid } = req.params;
+router.get(
+	"/:user_id/favorites/:fid",
+	// authenticate,
+	verify_user,
+	(req, res) => {
+		const { user_id, fid } = req.params;
 
-	Users.getFavoriteById(user_id, fid)
-		.then((favorite) => {
-			if (favorite.length > 0 ) {
-				res.status(200).json({ favorite });
-			} else {
-				res
-					.status(404)
-					.json({
+		Users.getFavoriteById(user_id, fid)
+			.then((favorite) => {
+				if (favorite.length > 0) {
+					res.status(200).json({ favorite });
+				} else {
+					res.status(404).json({
 						message: `No favorite found by this user with the id of ${fid}.`,
 					});
-			}
-		})
-		.catch((err) => res.status(500).json({message: `looks like something broke ${err}`}));
-});
+				}
+			})
+			.catch((err) =>
+				res.status(500).json({ message: `looks like something broke ${err}` })
+			);
+	}
+);
 
 //Allows a user to update a favorite by id
 router.put(
@@ -127,11 +145,15 @@ router.put(
 	verify_user,
 	verify_ownership,
 	(req, res) => {
-		const { user_id,fid } = req.params;
+		const { user_id, fid } = req.params;
 		const update = req.body;
 
 		Users.updateFavorite(fid, update)
-			.then((updated) => res.status(200).json({message:`Favorite updated successfully`, updated }))
+			.then((updated) =>
+				res
+					.status(200)
+					.json({ message: `Favorite updated successfully`, updated })
+			)
 			.catch((err) => {
 				console.log(err);
 				res.status(500).json(err);

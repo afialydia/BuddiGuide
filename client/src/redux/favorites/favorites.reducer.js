@@ -14,6 +14,7 @@ const INITIAL_STATE = {
 	faves: [],
 	fave: {},
 	error: "",
+	status:""
 };
 
 const favorite_reducer = (state = INITIAL_STATE, action) => {
@@ -112,8 +113,9 @@ const favorite_reducer = (state = INITIAL_STATE, action) => {
 				...state,
 				deletingFave: false,
 				deletedFave: true,
-				fave: action.payload,
+				// fave: action.payload,
 				error: "",
+				status:action.payload
 			};
 		case FavoriteTypes.DELETE_FAVE_FAIL:
 			return {

@@ -22,6 +22,7 @@ const Buddi_Menu = ({ user_id, getAllFavorites, faves }) => {
 		<div className="menu">
 			<span className="fave-number">{faves}</span>
 			<img src={buddi} />
+		
 		</div>
 	);
 };

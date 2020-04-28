@@ -8,9 +8,11 @@ import { SearchBar } from "./search_bar";
 export const Header = ({ handleChange }) => {
 	return (
 		<div className="header-container">
-			<Link to="/favorites">
-				<Buddi_Menu />
-			</Link>
+			<div>
+				<Link to="/favorites">
+					<Buddi_Menu />
+				</Link>
+			</div>
 			<div className="search-container">
 				<Link to="/">
 					<h3>Hey There, Buddi Guide</h3>
@@ -20,7 +22,7 @@ export const Header = ({ handleChange }) => {
 					handleChange={handleChange}
 				/>
 			</div>
-			
+			<div className="spacer">	<span >Login</span></div>
 		</div>
 	);
 };

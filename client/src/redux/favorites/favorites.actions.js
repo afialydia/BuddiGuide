@@ -7,6 +7,7 @@ export const fetchFaves = (user) => (dispatch) => {
 	axios
 		.get(`/api/users/${user}/favorites`)
 		.then((response) => {
+			console.log(response)
 			dispatch({
 				type: FavoriteTypes.GET_FAVES_SUCCESS,
 				payload: response.data,
