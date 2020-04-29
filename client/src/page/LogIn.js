@@ -29,7 +29,7 @@ class LogIn extends React.Component {
 	render() {
 		return (
 			<div>
-				<h2>Welcome New User</h2>
+				<h3>Welcome!</h3>
 
 				<form className="form" onSubmit={this.handleSubmit}>
 					<div>

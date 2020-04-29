@@ -14,7 +14,7 @@ export const FavoritesCard = ({ strain }, props) => {
 						<span>
 							<EditFavorite fid={strain.fid} />{" "}
 							<RemoveFavorite fid={strain.fid} />
-						</span>
+						</span><br></br>
 						<div className="favorites-content">
 							<h3>{strain.strain.toUpperCase()}</h3>
 							<i>{strain.type.toUpperCase()}</i>
@@ -37,7 +37,7 @@ export const FavoritesCard = ({ strain }, props) => {
 						<span>
 							<EditFavorite fid={strain.fid} />{" "}
 							<RemoveFavorite fid={strain.fid} />
-						</span>
+						</span><br></br>
 						<div className="favorites-content">
 							<h3>{strain.strain.toUpperCase()}</h3>
 							<i>{strain.type.toUpperCase()}</i><br></br>
@@ -59,7 +59,7 @@ export const FavoritesCard = ({ strain }, props) => {
 						<span>
 							<EditFavorite fid={strain.fid} />{" "}
 							<RemoveFavorite fid={strain.fid} />
-						</span>
+						</span><br></br>
 						<div className="favorites-content">
 							<h3>{strain.strain.toUpperCase()}</h3>
 							<i>{strain.type.toUpperCase()}</i><br></br>

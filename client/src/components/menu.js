@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Modal, ModalBody } from "reactstrap";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { fetchFave } from "../redux/favorites/favorites.actions";
 import { getUserId } from "../redux/user/user.selectors";
 import { selectFave } from "../redux/favorites/favorites.selectors";
-import EditingModal from "./editing_modal";
-import '../page/homepage.styles.css'
+import "../page/homepage.styles.css";
+import "../page/favorites.styles.css";
 
 const Menu = () => {
 	const [modal, setModal] = useState(false);
@@ -17,22 +18,33 @@ const Menu = () => {
 		<>
 			<Modal
 				isOpen={modal}
-				size="lg"
+				size="sm"
 				aria-labelledby="contained-modal-title-vcenter"
+				centered={false}
+				backdrop={false}
 				fade={true}
 				autoFocus={true}
 				toggle={toggle}
-				contentClassName="insta"
+				className="menu-modal"
+				contentClassName="menu-content"
 			>
-				<ModalBody className="modal">
-					<div className="menu-modal">
-						<div></div><i
-							onClick={async () => {
-								await toggle();
-							}}
-							class="fas fa-times"
-						/>
-                        
+				<ModalBody className="">
+					<div className="">
+						<span>
+							<i
+								onClick={async () => {
+									await toggle();
+								}}
+								class="fas fa-times"
+							/>
+						</span>
+						<Link className="link" to="/login">
+							<h4>Login</h4>
+						</Link>
+						<Link className="link" to="/register">
+							<h4>Sign Up</h4>{" "}
+						</Link>
+						<h4>About</h4>
 					</div>
 				</ModalBody>
 			</Modal>
