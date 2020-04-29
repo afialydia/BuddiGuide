@@ -11,15 +11,13 @@ import FavoritesPage from "./page/Favorites_page";
 function App() {
 	return (
 		<div className="App">
-		{/* <Header /> */}
+			
 		<Switch>
 			<Route exact path="/" component={HomePage} />
 			<Route path="/register" component={Register} />
 			<Route path="/login" component={LogIn} />
 			<PrivateRoute path="/favorites" component={FavoritesPage} />
-			{/* <PrivateRoute exact path="/edit" component={Home} /> */}
-
-			{/* <PrivateRoute path="/stylist/:id" component={Profile} /> */}
+		
 		</Switch>
 	</div>
 );

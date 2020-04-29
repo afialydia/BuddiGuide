@@ -5,10 +5,7 @@ import { createStructuredSelector } from "reselect";
 import { fetchFaves } from "../redux/favorites/favorites.actions";
 import { getUserId } from "../redux/user/user.selectors";
 
-import {
-	selectAllFaves,
-	selectFaveAmount,
-} from "../redux/favorites/favorites.selectors";
+import { selectFaveAmount } from "../redux/favorites/favorites.selectors";
 
 import buddi from "../assets/buddi.svg";
 import "../page/homepage.styles.css";
@@ -22,7 +19,6 @@ const Buddi_Menu = ({ user_id, getAllFavorites, faves }) => {
 		<div className="menu">
 			<span className="fave-number">{faves}</span>
 			<img src={buddi} />
-		
 		</div>
 	);
 };

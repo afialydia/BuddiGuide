@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import Menu from './menu'
 import "../page/homepage.styles.css";
 import Buddi_Menu from "./buddi_menu";
 import { SearchBar } from "./search_bar";
@@ -14,7 +14,7 @@ export const Header = ({ handleChange }) => {
 				</Link>
 			</div>
 			<div className="search-container">
-				<Link to="/">
+				<Link className="link" to="/">
 					<h3>Hey There, Buddi Guide</h3>
 				</Link>
 				<SearchBar
@@ -22,7 +22,9 @@ export const Header = ({ handleChange }) => {
 					handleChange={handleChange}
 				/>
 			</div>
-			<div className="spacer">	<span >Login</span></div>
+			<div className="spacer">
+				<Menu />
+			</div>
 		</div>
 	);
 };

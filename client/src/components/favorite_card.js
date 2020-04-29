@@ -20,7 +20,7 @@ export const FavoritesCard = ({ strain }, props) => {
 							<i>{strain.type.toUpperCase()}</i>
 							<br></br>
 							<span>
-								Opinion: <i>{strain.personal_rating}</i>
+								<i>{strain.personal_rating}</i>
 							</span>
 							<p>Notes: {strain.notes}</p>
 							{/* <p>{strain.fid}</p> */}
@@ -42,7 +42,7 @@ export const FavoritesCard = ({ strain }, props) => {
 							<h3>{strain.strain.toUpperCase()}</h3>
 							<i>{strain.type.toUpperCase()}</i><br></br>
 							<span>
-								Opinion: <i>{strain.personal_rating}</i>
+								<i>{strain.personal_rating}</i>
 							</span>
 							<p>Notes: {strain.notes}</p>
 							{/* <p>{strain.fid}</p> */}
@@ -64,7 +64,7 @@ export const FavoritesCard = ({ strain }, props) => {
 							<h3>{strain.strain.toUpperCase()}</h3>
 							<i>{strain.type.toUpperCase()}</i><br></br>
 							<span>
-								Opinion: <i>{strain.personal_rating}</i>
+								 <i>{strain.personal_rating}</i>
 							</span>
 							<p>Notes: {strain.notes}</p> 
 							{/* <p>{strain.fid}</p> */}

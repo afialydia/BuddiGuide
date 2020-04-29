@@ -6,18 +6,12 @@ import { fetchFave } from "../redux/favorites/favorites.actions";
 import { getUserId } from "../redux/user/user.selectors";
 import { selectFave } from "../redux/favorites/favorites.selectors";
 import EditingModal from "./editing_modal";
+import '../page/homepage.styles.css'
 
-const EditFavorite = ({ fid, fetchFave, user_id, fave }, props) => {
+const Menu = () => {
 	const [modal, setModal] = useState(false);
 
 	const toggle = () => setModal(!modal);
-	const delay = ms => new Promise(res => setTimeout(res, ms));
-
-	const orderedTog = async ({ fid, user_id }) => {
-		fetchFave({ fid, user_id });
-		await delay(500);
-		toggle();
-	};
 
 	return (
 		<>
@@ -28,18 +22,27 @@ const EditFavorite = ({ fid, fetchFave, user_id, fave }, props) => {
 				fade={true}
 				autoFocus={true}
 				toggle={toggle}
-				contentClassName="modal"
+				contentClassName="insta"
 			>
 				<ModalBody className="modal">
-					<EditingModal fave={fave[0]} user_id={user_id} toggle={toggle} />{" "}
+					<div className="menu-modal">
+						<div></div><i
+							onClick={async () => {
+								await toggle();
+							}}
+							class="fas fa-times"
+						/>
+                        
+					</div>
 				</ModalBody>
 			</Modal>
-			<i
-				onClick={ () => {
-					orderedTog({ fid, user_id })
+			<span
+				onClick={() => {
+					toggle();
 				}}
-				class="fas fa-pencil-alt"
-			></i>
+			>
+				<h4>MENU</h4>
+			</span>
 		</>
 	);
 };
@@ -53,4 +56,4 @@ const mapDispatchToProps = (dispatch) => ({
 	fetchFave: (id) => dispatch(fetchFave(id)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditFavorite);
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);
