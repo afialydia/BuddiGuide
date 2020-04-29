@@ -34,7 +34,9 @@ const EditingModal = ({ fave, user_id, editFave, toggle }, props) => {
 	};
 
 	return (
-		<div className="edit-fave-container">
+		<div
+		// className="edit-fave-container"
+		>
 			<span>
 				<i
 					onClick={async () => {
@@ -48,15 +50,16 @@ const EditingModal = ({ fave, user_id, editFave, toggle }, props) => {
 				{/* {console.log("state", state)} */}
 				<Form className="form-container" onSubmit={handleSubmit}>
 					<FormGroup row>
-						<Col md={10}>
+						<Col lg={10}>
 							<Label for="personal rating" sm={2}>
 								Rating:
 							</Label>
 							<br></br>
 							<Input
-								bsSize="lg"
+								size="lg"
 								type="select"
-								className="fave-input"
+								// children= "innerRef"
+								className="fave-input input"
 								placeholder={`${fave.personal_rating}`}
 								name="personal_rating"
 								onChange={handleChange}
@@ -72,13 +75,13 @@ const EditingModal = ({ fave, user_id, editFave, toggle }, props) => {
 					</FormGroup>
 
 					<FormGroup row>
-						<Col md={10}>
+						<Col lg={10}>
 							<Label for="notes" sm={2}>
 								Notes:
 							</Label>
 							<br></br>
 							<Input
-								bsSize="lg"
+								size="lg"
 								type="textarea"
 								name="notes"
 								placeholder={`${fave.notes}`}
@@ -88,7 +91,7 @@ const EditingModal = ({ fave, user_id, editFave, toggle }, props) => {
 						</Col>
 					</FormGroup>
 
-					<Button className="fave-button">Submit</Button>
+					<Button color="rgb(98, 46, 71, 0.8)" className="fave-button">Submit</Button>
 				</Form>
 			</div>
 		</div>

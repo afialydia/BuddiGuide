@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Modal, ModalBody } from "reactstrap";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -6,6 +6,8 @@ import { fetchFave } from "../redux/favorites/favorites.actions";
 import { getUserId } from "../redux/user/user.selectors";
 import { selectFave } from "../redux/favorites/favorites.selectors";
 import EditingModal from "./editing_modal";
+import "../page/favorites.styles.css";
+
 
 const EditFavorite = ({ fid, fetchFave, user_id, fave }, props) => {
 	const [modal, setModal] = useState(false);
@@ -23,14 +25,15 @@ const EditFavorite = ({ fid, fetchFave, user_id, fave }, props) => {
 		<>
 			<Modal
 				isOpen={modal}
-				size="lg"
+				size="sm"
 				aria-labelledby="contained-modal-title-vcenter"
 				fade={true}
 				autoFocus={true}
 				toggle={toggle}
-				contentClassName="modal"
+				className="edit-fave-container"
+				contentClassName="edit-fave"
 			>
-				<ModalBody className="modal">
+				<ModalBody >
 					<EditingModal fave={fave[0]} user_id={user_id} toggle={toggle} />{" "}
 				</ModalBody>
 			</Modal>
