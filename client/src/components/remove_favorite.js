@@ -4,8 +4,13 @@ import { createStructuredSelector } from "reselect";
 import { deleteFave } from "../redux/favorites/favorites.actions";
 import { getUserId } from "../redux/user/user.selectors";
 
-const RemoveFavorite = ({ fid, deleteFave, user_id},props) => {	return <i onClick={() => deleteFave({fid,user_id},props)} class="fas fa-times"></i>
-
+const RemoveFavorite = ({ fid, deleteFave, user_id }, props) => {
+	return (
+		<i
+			onClick={() => deleteFave({ fid, user_id }, props)}
+			class="fas fa-times"
+		></i>
+	);
 };
 
 const mapStateToProps = createStructuredSelector({

@@ -3,6 +3,7 @@ import { Card } from "./strain_card";
 import "../page/homepage.styles.css";
 
 export const StrainContainer = ({ filteredStrains, allStrains }) => {
+	
 	if (allStrains) {
 		return (
 			<div className="strain-container">

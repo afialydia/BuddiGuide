@@ -40,21 +40,20 @@ export const loginUser = (credentials, props) => (dispatch) => {
 		);
 };
 
-const setUser = (user) => (dispatch) => {
-	console.log("user", user);
-	dispatch({ type: UserTypes.SET_USER_START });
-	axios
-		.get("/api/users/1")
-		// .delete("https://hair-care-backend.herokuapp.com/auth/SET_USER", user)
-		.then((response) => {
-			dispatch({
-				type: UserTypes.SET_USER_SUCCESS,
-				payload: response.data,
-			});
-		})
-		.then(() => this.props.history.push("/login"))
+// const setUser = (user) => (dispatch) => {
+// 	console.log("user", user);
+// 	dispatch({ type: UserTypes.SET_USER_START });
+// 	axios
+// 		.get("/api/users/1")
+// 		.then((response) => {
+// 			dispatch({
+// 				type: UserTypes.SET_USER_SUCCESS,
+// 				payload: response.data,
+// 			});
+// 		})
+// 		.then(() => this.props.history.push("/login"))
 
-		.catch((err) =>
-			dispatch({ type: UserTypes.SET_USER_FAIL, payload: err.response })
-		);
-};
+// 		.catch((err) =>
+// 			dispatch({ type: UserTypes.SET_USER_FAIL, payload: err.response })
+// 		);
+// };
