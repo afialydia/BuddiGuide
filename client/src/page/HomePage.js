@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
+import Fuse from "fuse.js";
+
 import { getStrains } from "../redux/strains/strain.selectors";
 import { getUserId } from "../redux/user/user.selectors";
 import { StrainContainer } from "../components/strain_container";
@@ -21,26 +23,43 @@ const HomePage = ({ strains, getAllStrains, user_id }) => {
 	}, []);
 
 	let allStrains = strains;
-	// console.log(allStrains);
-	// console.log(searchField);
-	// let strainSort = (strainType)=> allStrains.filter((strain) => strain.type === strainType);
 
-	// const sortedStrains = (allStrains) => {
-	// 	 allStrains = strainSort("sativa")
-	// 	 return console.log(allStrains);
-	// };
+	const options = {
+		// isCaseSensitive: false,
+		// includeScore: false,
+		// shouldSort: true,
+		// includeMatches: false,
+		// findAllMatches: false,
+		// minMatchCharLength: 1,
+		// location: 0,
+		threshold: 0.6,
+		// distance: 100,
+		// useExtendedSearch: false,
+		keys: ["strain", "type", "effects", "flavor"],
+	};
 
-	const filteredStrains = allStrains.filter((strain) =>
-		strain.strain.toLowerCase().includes(searchField.toLowerCase())
-	);
+	const fuse = new Fuse(allStrains, options);
+	
 
-	// console.log(filteredStrains);
-	return (
-		<div className="strain-home">
-			<Header handleChange={handleChange} user_id={user_id} />
-			<StrainContainer strains={filteredStrains} />
-		</div>
-	);
+	if (searchField === "") {
+		return (
+			<div className="strain-home">
+				<Header handleChange={handleChange} user_id={user_id} />
+				<StrainContainer allStrains={allStrains} />
+			</div>
+		);
+	} else {
+		let filteredStrains = fuse.search(searchField);
+	
+		return (
+			<div className="strain-home">
+				<Header handleChange={handleChange} user_id={user_id} />
+				<StrainContainer filteredStrains={filteredStrains} />
+			</div>
+		);
+	}
+
+
 };
 
 const mapStateToProps = createStructuredSelector({

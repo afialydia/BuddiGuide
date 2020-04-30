@@ -13207,7 +13207,7 @@ exports.seed = function (knex) {
 							"North American refers to any strain that grows natively in this region. These indigenous vareities (also called landraces) can exhibit indica or sativa characteristics depending on the climate and latitude at which it grows. Sativas tend to grow in warmer regions closer to the equator,  while the hardier indica varieties are more common beyond 30 degrees latitude.", 
 					}, 
 					{
-						strain: "North-American-Sativa", 
+						strain: "North-American Sativa", 
 						type: "sativa", 
 
 						effects: "Uplifted, Euphoric, Focused, Happy, Relaxed", 
