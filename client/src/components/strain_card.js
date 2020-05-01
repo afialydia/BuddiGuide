@@ -8,11 +8,11 @@ export const Card = ({ strain }) => {
 
 	const { id, strain: name, type, effects, flavor, description } = strain;
 	return (
-		<div className={`card-container ${type}`} onClick={back}>
+		<div className={`card-container ${type}`}>
 			<span>
 				<FavoriteStrain id={id} />
 			</span>
-			<div className="strain-card">
+			<div className="strain-card" onClick={back}>
 				{front ? (
 					<div>
 						<br />
