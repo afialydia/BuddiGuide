@@ -213,6 +213,14 @@ h3 {
 	.spacer {
 		margin-left: 1%
 	}
+	.menu img{
+		height: 80% !important;
+		/* width: 40px; */
+		margin: 0 auto;
+	}
+	.fave-number{
+		transform: translate(-60%, -80%) !important;
+	}
 }
 
 .menu {
