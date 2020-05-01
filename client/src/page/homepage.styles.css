@@ -40,7 +40,6 @@ h3 {
 	/* align-content: space-around; */
 }
 
-
 .center {
 	margin: 0 auto;
 	/* border: solid; */
@@ -73,7 +72,7 @@ h3 {
 	letter-spacing: -0.02em;
 }
 
-.card-container span{
+.card-container span {
 	position: relative;
 	margin: 0 auto;
 	display: flex;
@@ -156,6 +155,14 @@ h3 {
 	height: 60px;
 	box-sizing: border-box;
 }
+@media only screen and (max-width: 750px) {
+	.header-container {
+		/* flex-direction: column-reverse; */
+		height: auto;
+		margin: 0;
+		justify-content: center;
+	}
+}
 
 .search-container {
 	/* border:solid; */
@@ -175,10 +182,30 @@ h3 {
 	align-self: center;
 	background: rgb(174, 179, 42);
 }
-/* .search-container:hover{
-	box-shadow: 0 12px 16px 0 rgba(188, 70, 40, 0.24),
-	0 17px 50px 0 rgba(98, 0, 0, 0.19);
-} */
+
+@media only screen and (max-width: 600px) {
+	.search {
+		width: 95%;
+		margin: 0 auto;
+	}
+	.search-container {
+		flex-direction: column;
+		height: auto;
+		padding: 1%;
+		margin: 0 1%;
+		/* align-content: center; */
+
+	}
+	.search-container h3 {
+		/* display: none; */
+		margin:0 !important;
+	}
+
+	.spacer {
+		margin-left: 1%
+	}
+}
+
 .menu {
 	/* border: solid; */
 	display: flex;
@@ -265,7 +292,7 @@ h3 {
 		0 17px 50px 0 rgba(98, 0, 0, 0.19); */
 }
 
-.menu-modal h4{
+.menu-modal h4 {
 	position: relative;
 	margin: 0 auto;
 	display: flex;
@@ -274,7 +301,6 @@ h3 {
 .menu-modal h4:hover {
 	color: rgb(98, 46, 71, 0.8);
 	cursor: pointer;
-	
 }
 .menu-modal span {
 	position: relative;

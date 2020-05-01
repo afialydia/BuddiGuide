@@ -53,7 +53,7 @@ const Menu = () => {
 					toggle();
 				}}
 			>
-				<h4>MENU</h4>
+				<h4><i class="fas fa-bars"></i></h4>
 			</span>
 		</>
 	);
