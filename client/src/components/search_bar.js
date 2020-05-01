@@ -1,12 +1,11 @@
 import React from "react";
-import '../page/homepage.styles.css'
+import "../page/homepage.styles.css";
 
 export const SearchBar = ({ placeholder, handleChange }) => (
 	<input
 		className="search"
 		type="search"
-		placeholder={ placeholder }
+		placeholder={placeholder}
 		onChange={handleChange}
 	/>
-	
 );

@@ -25,13 +25,13 @@ const HomePage = ({ strains, getAllStrains, user_id }) => {
 	let allStrains = strains;
 
 	const options = {
-		// isCaseSensitive: false,
+		isCaseSensitive: false,
 		// includeScore: false,
-		// shouldSort: true,
+		shouldSort: true,
 		// includeMatches: false,
-		// findAllMatches: false,
-		// minMatchCharLength: 1,
-		// location: 0,
+		findAllMatches: true,
+		minMatchCharLength: 4,
+		location: 0,
 		threshold: 0.6,
 		// distance: 100,
 		// useExtendedSearch: false,
@@ -53,7 +53,7 @@ const HomePage = ({ strains, getAllStrains, user_id }) => {
 	
 		return (
 			<div className="strain-home">
-				<Header handleChange={handleChange} user_id={user_id} />
+				<Header handleChange={handleChange}  user_id={user_id} />
 				<StrainContainer filteredStrains={filteredStrains} />
 			</div>
 		);

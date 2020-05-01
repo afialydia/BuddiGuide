@@ -5,73 +5,28 @@ import "../page/favorites.styles.css";
 import "../page/homepage.styles.css";
 
 export const FavoritesCard = ({ strain }, props) => {
-	// console.log(strain)
-	if (strain.type === "sativa") {
-		return (
-			<div className="card-container sativa">
-				<div className="strain-card">
-					<div className="favorites-card">
+	const { fid, strain: name, type, personal_rating, notes } = strain;
+
+	return (
+		<div className={`card-container ${type}`}>
+			<div className="strain-card">
+				<div className="favorites-card">
+					<span>
+						<EditFavorite fid={fid} /> <RemoveFavorite fid={fid} />
+					</span>
+					<br></br>
+					<div className="favorites-content">
+						<h3>{name.toUpperCase()}</h3>
+						<i>{type.toUpperCase()}</i>
+						<br></br>
 						<span>
-							<EditFavorite fid={strain.fid} />{" "}
-							<RemoveFavorite fid={strain.fid} />
-						</span><br></br>
-						<div className="favorites-content">
-							<h3>{strain.strain.toUpperCase()}</h3>
-							<i>{strain.type.toUpperCase()}</i>
-							<br></br>
-							<span>
-								<i>{strain.personal_rating}</i>
-							</span>
-							<p>Notes: {strain.notes}</p>
-							{/* <p>{strain.fid}</p> */}
-						</div>
+							<i>{personal_rating}</i>
+						</span>
+						<p>Notes: {notes}</p>
+						{/* <p>{strain.fid}</p> */}
 					</div>
 				</div>
 			</div>
-		);
-	} else if (strain.type === "hybrid") {
-		return (
-			<div className="card-container hybrid">
-				<div className="strain-card">
-					<div className="favorites-card">
-						<span>
-							<EditFavorite fid={strain.fid} />{" "}
-							<RemoveFavorite fid={strain.fid} />
-						</span><br></br>
-						<div className="favorites-content">
-							<h3>{strain.strain.toUpperCase()}</h3>
-							<i>{strain.type.toUpperCase()}</i><br></br>
-							<span>
-								<i>{strain.personal_rating}</i>
-							</span>
-							<p>Notes: {strain.notes}</p>
-							{/* <p>{strain.fid}</p> */}
-						</div>
-					</div>
-				</div>
-			</div>
-		);
-	} else {
-		return (
-			<div className="card-container indica">
-				<div className="strain-card">
-					<div className="favorites-card">
-						<span>
-							<EditFavorite fid={strain.fid} />{" "}
-							<RemoveFavorite fid={strain.fid} />
-						</span><br></br>
-						<div className="favorites-content">
-							<h3>{strain.strain.toUpperCase()}</h3>
-							<i>{strain.type.toUpperCase()}</i><br></br>
-							<span>
-								 <i>{strain.personal_rating}</i>
-							</span>
-							<p>Notes: {strain.notes}</p> 
-							{/* <p>{strain.fid}</p> */}
-						</div>
-					</div>
-				</div>
-			</div>
-		);
-	}
+		</div>
+	);
 };

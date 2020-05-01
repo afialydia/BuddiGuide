@@ -18,7 +18,7 @@ export const Header = ({ handleChange }) => {
 					<h3>Hey There, Buddi Guide</h3>
 				</Link>
 				<SearchBar
-					placeholder="Search Strains By Name..."
+					placeholder={"Search Strains By Name, Type, Flavor, or Effect..."}
 					handleChange={handleChange}
 				/>
 			</div>
