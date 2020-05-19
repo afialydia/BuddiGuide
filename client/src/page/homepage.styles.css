@@ -233,6 +233,7 @@ h3 {
 	position: relative;
 	width: auto;
 	height: 60px;
+	/* flex-grow: 0 !important; */
 	/* background: rgb(174, 179, 42); */
 }
 .menu img {
@@ -241,7 +242,9 @@ h3 {
 .menu img:active {
 	transform: translateY(4px);
 }
-
+.col{
+	flex-grow: 0;
+}
 .fave-number {
 	z-index: 3;
 	line-height: normal;

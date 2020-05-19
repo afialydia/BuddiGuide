@@ -1,70 +1,91 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import FormInput from "../components/form_input";
+import { Form, FormGroup, Input, Label, Button, Col } from "reactstrap";
 import { selectUser } from "../redux/user/user.selectors";
-import {loginUser} from "../redux/user/user.actions";
+import { loginUser } from "../redux/user/user.actions";
 
-class LogIn extends React.Component {
-	constructor(props) {
-		super(props);
+const LogIn = ({ loginUser, toggle }) => {
+	const [state, setState] = useState({
+		username: "",
+		password: "",
+	});
 
-		this.state = {
-			username: "",
-			password: ""
-		};
-	}
-
-	handleSubmit = async e => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log(this.state);
-		console.log('props', this.props)
 
-		 this.props.loginUser(this.state, this.props.history);	}
-	handleChange = e => {
-		const { value, name } = e.target;
-		this.setState({ [name]: value });
+		loginUser(state);
+		await toggle();
 	};
 
-	render() {
-		return (
-			<div>
-				<h3>Welcome!</h3>
+	const handleChange = (e) => {
+		const { value, name } = e.target;
+		setState({...state, [name]: value });
+	};
 
-				<form className="form" onSubmit={this.handleSubmit}>
-					<div>
-						<FormInput
-							name="username"
-							type="text"
-							handleChange={this.handleChange}
-							value={this.state.username}
-							label="username"
-							required
-						/>
-						<FormInput
-							name="password"
-							type="password"
-							value={this.state.password}
-							handleChange={this.handleChange}
-							label="password"
-							required
-						/>
-					</div>
-					<div>
-						<button className="button" type="submit">
-							Sign In
-						</button>
-					</div>
-				</form>
-			</div>
-		);
-	}
-}
+	return (
+		<div>
+			{/* <span>
+				<i
+					onClick={async () => {
+						await toggle();
+					}}
+					class="fas fa-times"
+				/>
+			</span> */}
+			<h3>Welcome!</h3>
+
+			<Form className="form-container" onSubmit={handleSubmit}>
+				<div>
+					<FormGroup row>
+						<Col lg={10}>
+							<Label for="username" sm={2}>
+								Username:
+							</Label>
+							<br></br>
+							<Input
+								size="lg"
+								type="text"
+								name="username"
+								className="fave-input"
+								placeholder={`username`}
+								onChange={handleChange}
+								required
+							/>
+						</Col>
+					</FormGroup>
+					<FormGroup row>
+						<Col lg={10}>
+							<Label for="password" sm={2}>
+								Password:
+							</Label>
+							<br></br>
+							<Input
+								size="lg"
+								type="password"
+								name="password"
+								placeholder={`password`}
+								className="fave-input"
+								onChange={handleChange}
+								required
+							/>
+						</Col>
+					</FormGroup>
+				
+				</div>
+
+				<Button color="rgb(98, 46, 71, 0.8)" className="fave-button">
+					Submit
+				</Button>
+			</Form>
+		</div>
+	);
+};
 
 const mapStateToProps = createStructuredSelector({
-	user: selectUser
+	user: selectUser,
 });
 
-const mapDispatchToProps = {loginUser}
+const mapDispatchToProps = { loginUser };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);

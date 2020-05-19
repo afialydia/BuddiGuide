@@ -1,6 +1,7 @@
 import { StrainTypes } from "./strain.types";
 
 import axios from "axios";
+import axiosWithAuth from "../../utils/axiosWithAuth";
 
 export const getAllStrains = () => (dispatch) => {
 	dispatch({ type: StrainTypes.GET_ALL_STRAINS_START });
@@ -24,8 +25,8 @@ export const getAllStrains = () => (dispatch) => {
 export const getStrain = (id) => (dispatch) => {
 	console.log("propz", id);
 	dispatch({ type: StrainTypes.GET_STRAIN_START });
-	axios
-		.get(`/api/strains/${id}`)
+	axiosWithAuth
+		.get(`strains/${id}`)
 
 		.then((response) => {
 			dispatch({

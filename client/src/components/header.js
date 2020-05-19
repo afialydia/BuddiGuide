@@ -4,6 +4,7 @@ import Menu from './menu'
 import "../page/homepage.styles.css";
 import Buddi_Menu from "./buddi_menu";
 import { SearchBar } from "./search_bar";
+import { Container, Row, Button, Col } from "reactstrap";
 
 export const Header = ({ handleChange }) => {
 	return (

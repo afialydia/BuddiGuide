@@ -28,7 +28,7 @@ const user_reducer = (state = INITIAL_STATE, action) => {
 				addingUser: false,
 				addedUser: true,
 				token: action.payload.token,
-				user: jwt.decode(localStorage.getItem("token")),
+				user: jwt.decode(localStorage.getItem("authenticate")),
 				isLoggingIn: false,
 				isLoggedIn: true,
 				error: "",
@@ -50,7 +50,7 @@ const user_reducer = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				token: action.payload.token,
-				user: jwt.decode(localStorage.getItem("token")),
+				user: jwt.decode(localStorage.getItem("authenticate")),
 				isLoggingIn: false,
 				isLoggedIn: true,
 				error: "",

@@ -32,7 +32,7 @@ router.post("/register", verify_cred, verify_unique, (req, res) => {
 
 router.post("/login", verify_cred, (req, res) => {
 	let { username, password } = req.body;
-
+	console.log("user", username, password);
 	Users.findBy({ username })
 		.first()
 		.then((user) => {
@@ -71,16 +71,6 @@ router.get("/:user_id", authenticate, verify_user, (req, res) => {
 		);
 });
 
-// //Update user profile
-// router.put("/:user_id", authenticate, verify_user, (req, res) => {
-// 	const user_id = req.params;
-// 	const update = req.body;
-
-// 	Users.updateUser(user_id, update)
-// 		.then(user => res.status(200).json({message: 'User has been updated', user}))
-// 		.catch(err => res.status(500).json({message: `Sorry that didn't work ${err}`}));
-// });
-
 // router.delete("/:user_id", authenticate, verify_user, (req, res) => {
 // 	const user_id = req.params;
 
@@ -90,34 +80,29 @@ router.get("/:user_id", authenticate, verify_user, (req, res) => {
 // });
 
 //Get all of a customer's favorites
-router.get(
-	"/:user_id/favorites",
-	// authenticate,
-	verify_user,
-	(req, res) => {
-		const { user_id } = req.params;
-		Users.getFavorites(user_id)
-			.then((favorites) => {
-				if (favorites[0]) {
-					res.status(200).json({ favorites });
-				} else {
-					res
-						.status(200)
-						.json({ favorites, message: "User currently has no favorites." });
-				}
-			})
-			.catch((err) =>
+router.get("/:user_id/favorites", authenticate, verify_user, (req, res) => {
+	const { user_id } = req.params;
+	Users.getFavorites(user_id)
+		.then((favorites) => {
+			if (favorites[0]) {
+				res.status(200).json({ favorites });
+			} else {
 				res
-					.status(500)
-					.json({ message: `looks like something broke in the router ${err}` })
-			);
-	}
-);
+					.status(200)
+					.json({ favorites, message: "User currently has no favorites." });
+			}
+		})
+		.catch((err) =>
+			res
+				.status(500)
+				.json({ message: `looks like something broke in the router ${err}` })
+		);
+});
 
 //get favorite by id
 router.get(
 	"/:user_id/favorites/:fid",
-	// authenticate,
+	authenticate,
 	verify_user,
 	(req, res) => {
 		const { user_id, fid } = req.params;
@@ -141,7 +126,7 @@ router.get(
 //Allows a user to update a favorite by id
 router.put(
 	"/:user_id/favorites/:fid",
-	// authenticate,
+	authenticate,
 	verify_user,
 	verify_ownership,
 	(req, res) => {
@@ -164,7 +149,7 @@ router.put(
 // //Delete a user's favorite by id
 router.delete(
 	"/:user_id/favorites/:fid",
-	// authenticate,
+	authenticate,
 	verify_user,
 	verify_ownership,
 	(req, res) => {

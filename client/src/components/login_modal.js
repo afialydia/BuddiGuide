@@ -6,12 +6,11 @@ import { createStructuredSelector } from "reselect";
 import { fetchFave } from "../redux/favorites/favorites.actions";
 import { getUserId } from "../redux/user/user.selectors";
 import { selectFave } from "../redux/favorites/favorites.selectors";
-
-import Login_Modal from "./login_modal";
 import "../page/homepage.styles.css";
 import "../page/favorites.styles.css";
+import LogIn from "../page/LogIn";
 
-const Menu = () => {
+const Login_Modal = () => {
 	const [modal, setModal] = useState(false);
 
 	const toggle = () => setModal(!modal);
@@ -40,13 +39,8 @@ const Menu = () => {
 								class="fas fa-times"
 							/>
 						</span>
-						{/* <Link className="link" to="/login"> */}
-							<h4><Login_Modal /></h4>{" "}
-						{/* </Link> */}
-						<Link className="link" to="/register">
-							<h4>Sign Up</h4>{" "}
-						</Link>
-						<h4>About</h4>
+
+						<LogIn toggle={toggle} />
 					</div>
 				</ModalBody>
 			</Modal>
@@ -55,9 +49,7 @@ const Menu = () => {
 					toggle();
 				}}
 			>
-				<h4>
-					<i class="fas fa-bars"></i>
-				</h4>
+				Login
 			</span>
 		</>
 	);
@@ -72,4 +64,4 @@ const mapDispatchToProps = (dispatch) => ({
 	fetchFave: (id) => dispatch(fetchFave(id)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Menu);
+export default connect(mapStateToProps, mapDispatchToProps)(Login_Modal);
