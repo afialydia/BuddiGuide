@@ -32,7 +32,6 @@ router.post("/register", verify_cred, verify_unique, (req, res) => {
 
 router.post("/login", verify_cred, (req, res) => {
 	let { username, password } = req.body;
-	console.log("user", username, password);
 	Users.findBy({ username })
 		.first()
 		.then((user) => {
