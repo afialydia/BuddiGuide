@@ -7,17 +7,7 @@ import storage from 'redux-persist/lib/storage'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-
-const middlewares = [thunk];
-
-if (process.env.NODE_ENV === `development`) {
-  const { logger } = require(`redux-logger`);
-
-  middlewares.push(logger);
-  console.log(middlewares)
-}
-
-console.log(middlewares)
+const middlewares = [thunk, logger];
 
 const persistConfig = {
 	key: "root",
