@@ -25,7 +25,6 @@ export const loginUser = (credentials, props) => (dispatch) => {
 	axios
 		.post("/api/users/login", credentials)
 		.then((response) => {
-			console.log(response)
 			const token = response.data.token;
 			localStorage.setItem("authenticate", token);
 			dispatch({
