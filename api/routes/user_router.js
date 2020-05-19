@@ -8,6 +8,8 @@ const verify_cred = require("../middleware/verify_cred");
 const verify_unique = require("../middleware/verify_unique");
 const verify_user = require("../middleware/verify_user");
 const verify_ownership = require("../middleware/verify_ownership");
+require("dotenv").config();
+
 
 const Users = require("../models/user_model");
 
