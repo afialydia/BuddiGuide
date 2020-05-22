@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
 	Users.findBy({username}).then(
         (user) => {
 		if (user[0]) {
-			res.status(400).json({ error: "This username is already taken. Please create another." });
+			res.status(400).json({ error: "This username is already taken. Please choose another." });
 		} else {
 			next();
 		}

@@ -1,4 +1,6 @@
 import { StrainTypes } from "./strain.types";
+import { UserTypes } from "../user/user.types";
+
 
 const INITIAL_STATE = {
 	fetchingAllStrains: false,
@@ -55,10 +57,14 @@ const strain_reducer = (state = INITIAL_STATE, action) => {
 				fetchedOneStrain: false,
 				error: action.payload,
 			};
-	
+
+		case UserTypes.LOGOUT_USER:
+			return {
+				...state,
+			};
 		default:
 			return state;
 	}
 };
 
-export default strain_reducer
+export default strain_reducer;

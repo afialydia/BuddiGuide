@@ -2,7 +2,7 @@ import { UserTypes } from "./user.types";
 
 import axios from "axios";
 
-export const registerUser = (user, props) => (dispatch) => {
+export const registerUser = (user, props, next) => async (dispatch) => {
 	dispatch({ type: UserTypes.REGISTER_START });
 	axios
 		.post("/api/users/register", user)
@@ -13,10 +13,13 @@ export const registerUser = (user, props) => (dispatch) => {
 				type: UserTypes.REGISTER_SUCCESS,
 				payload: response.data,
 			});
-			props.push("/");
+			// next();
 		})
 		.catch((err) =>
-			dispatch({ type: UserTypes.REGISTER_FAIL, payload: err.response })
+			dispatch({
+				type: UserTypes.REGISTER_FAIL,
+				payload: err.response.data,
+			})
 		);
 };
 
@@ -37,3 +40,6 @@ export const loginUser = (credentials, props) => (dispatch) => {
 		);
 };
 
+export const resetState = () => (dispatch) => {
+	dispatch({ type: UserTypes.LOGOUT_USER });
+};

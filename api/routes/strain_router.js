@@ -28,7 +28,6 @@ router.post("/:strain_id",
 	 const favorite = {...req.body, strain_id};
 
 	Strains.createFavorite(favorite)
-		.then(console.log(favorite))
 		.then(favorite => res.status(200).json({favorite}))
 		.catch(err => {
 			res.status(500).json({message: 'somethings wrong with this request',err});

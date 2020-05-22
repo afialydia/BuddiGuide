@@ -7,10 +7,11 @@ const INITIAL_STATE = {
 	isLoggedIn: false,
 	isLoggingIn: false,
 	loggingOut: false,
-	loggedOut: false,
+	loggedOut: true,
 	token: null,
 	user: {},
-	error: "",
+	error: null,
+	message: null,
 };
 
 const user_reducer = (state = INITIAL_STATE, action) => {
@@ -20,7 +21,6 @@ const user_reducer = (state = INITIAL_STATE, action) => {
 				...state,
 				addingUser: true,
 				addedUser: false,
-				error: "",
 			};
 		case UserTypes.REGISTER_SUCCESS:
 			return {
@@ -31,7 +31,8 @@ const user_reducer = (state = INITIAL_STATE, action) => {
 				user: jwt.decode(localStorage.getItem("authenticate")),
 				isLoggingIn: false,
 				isLoggedIn: true,
-				error: "",
+				loggedOut: false,
+				message: action.payload.message,
 			};
 		case UserTypes.REGISTER_FAIL:
 			return {
@@ -44,6 +45,7 @@ const user_reducer = (state = INITIAL_STATE, action) => {
 				...state,
 				isLoggingIn: true,
 				isLoggedIn: false,
+				loggedOut: false,
 				error: "",
 			};
 		case UserTypes.LOGIN_SUCCESS:
@@ -53,6 +55,9 @@ const user_reducer = (state = INITIAL_STATE, action) => {
 				user: jwt.decode(localStorage.getItem("authenticate")),
 				isLoggingIn: false,
 				isLoggedIn: true,
+				loggingOut: false,
+				loggedOut: false,
+				message: action.payload.message,
 				error: "",
 			};
 		case UserTypes.LOGIN_FAIL:
@@ -60,28 +65,11 @@ const user_reducer = (state = INITIAL_STATE, action) => {
 				...state,
 				isLoggingIn: false,
 				isLoggedIn: false,
-				error: action.payload,
+				error: action.payload.error,
 			};
-		case UserTypes.LOGOUT_START:
-			return {
-				...state,
-				loggingOut: true,
-				loggedOut: false,
-				error: "",
-			};
-		case UserTypes.LOGOUT_SUCCESS:
-			return {
-				...state,
-				loggingOut: false,
-				loggedOut: true,
-				user: action.payload,
-				error: "",
-			};
-		case UserTypes.LOGOUT_FAIL:
-			return {
-				...state,
-				error: action.payload,
-			};
+		case UserTypes.LOGOUT_USER:
+			return INITIAL_STATE;
+
 		default:
 			return state;
 	}

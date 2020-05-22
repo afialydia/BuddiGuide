@@ -17,6 +17,10 @@ function App() {
 			<Route exact path="/" component={HomePage} />
 			<Route path="/register" component={Register} />
 			<Route path="/login" component={Login_Modal} />
+
+			
+
+
 			<PrivateRoute path="/favorites" component={FavoritesPage} />
 		
 		</Switch>

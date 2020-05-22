@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Modal, ModalBody } from "reactstrap";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import { logOutUser } from "../redux/user/user.actions";
 import { fetchFave } from "../redux/favorites/favorites.actions";
 import { getUserId } from "../redux/user/user.selectors";
 import { selectFave } from "../redux/favorites/favorites.selectors";
@@ -11,7 +12,7 @@ import Login_Modal from "./login_modal";
 import "../page/homepage.styles.css";
 import "../page/favorites.styles.css";
 
-const Menu = () => {
+const Menu = ({ logOutUser }) => {
 	const [modal, setModal] = useState(false);
 
 	const toggle = () => setModal(!modal);
@@ -41,12 +42,15 @@ const Menu = () => {
 							/>
 						</span>
 						{/* <Link className="link" to="/login"> */}
-							<h4><Login_Modal /></h4>{" "}
+						<h4>
+							<Login_Modal />
+						</h4>{" "}
 						{/* </Link> */}
-						<Link className="link" to="/register">
-							<h4>Sign Up</h4>{" "}
-						</Link>
+						
 						<h4>About</h4>
+						{/* <Link className="link" to="/" onClick={logOutUser()}>
+							<h4>Sign Out</h4>{" "}
+						</Link> */}
 					</div>
 				</ModalBody>
 			</Modal>
@@ -70,6 +74,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = (dispatch) => ({
 	fetchFave: (id) => dispatch(fetchFave(id)),
+	// logOutUser: () => dispatch(logOutUser),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Menu);

@@ -5,7 +5,10 @@ import { Form, FormGroup, Input, Label, Button, Col } from "reactstrap";
 import { selectUser } from "../redux/user/user.selectors";
 import { loginUser } from "../redux/user/user.actions";
 
-const LogIn = ({ loginUser, toggle }) => {
+import "./homepage.styles.css";
+import "./favorites.styles.css";
+
+const LogIn = ({ loginUser, close }) => {
 	const [state, setState] = useState({
 		username: "",
 		password: "",
@@ -13,28 +16,18 @@ const LogIn = ({ loginUser, toggle }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-
 		loginUser(state);
-		await toggle();
+		await close();
 	};
 
 	const handleChange = (e) => {
 		const { value, name } = e.target;
-		setState({...state, [name]: value });
+		setState({ ...state, [name]: value });
 	};
 
 	return (
-		<div>
-			{/* <span>
-				<i
-					onClick={async () => {
-						await toggle();
-					}}
-					class="fas fa-times"
-				/>
-			</span> */}
-			<h3>Welcome!</h3>
-
+		<div className="auth-container">
+	
 			<Form className="form-container" onSubmit={handleSubmit}>
 				<div>
 					<FormGroup row>
@@ -68,16 +61,18 @@ const LogIn = ({ loginUser, toggle }) => {
 								className="fave-input"
 								onChange={handleChange}
 								required
+								
 							/>
 						</Col>
 					</FormGroup>
-				
 				</div>
 
 				<Button color="rgb(98, 46, 71, 0.8)" className="fave-button">
 					Submit
 				</Button>
 			</Form>
+			<br></br>
+			
 		</div>
 	);
 };

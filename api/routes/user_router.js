@@ -141,7 +141,6 @@ router.put(
 					.json({ message: `Favorite updated successfully`, updated })
 			)
 			.catch((err) => {
-				console.log(err);
 				res.status(500).json(err);
 			});
 	}
@@ -163,7 +162,6 @@ router.delete(
 					.json({ message: "Favorite successfully deleted", favorite })
 			)
 			.catch((err) => {
-				console.log(err);
 				res.status(500).json(err);
 			});
 	}
