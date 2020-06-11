@@ -4,11 +4,12 @@ import { createStructuredSelector } from "reselect";
 import { Form, FormGroup, Input, Label, Button, Col } from "reactstrap";
 import { selectUser } from "../redux/user/user.selectors";
 import { loginUser } from "../redux/user/user.actions";
+import { fetchFaves } from "../redux/favorites/favorites.actions";
 
 import "./homepage.styles.css";
 import "./favorites.styles.css";
 
-const LogIn = ({ loginUser, close }) => {
+const LogIn = ({ loginUser, fetchFaves, user, close }) => {
 	const [state, setState] = useState({
 		username: "",
 		password: "",
@@ -16,8 +17,11 @@ const LogIn = ({ loginUser, close }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		loginUser(state);
-		await close();
+		const { username, password } = state;
+
+		loginUser({ username, password }).then(async (response) => {
+			fetchFaves(response.data.user.id);
+		});
 	};
 
 	const handleChange = (e) => {
@@ -27,7 +31,6 @@ const LogIn = ({ loginUser, close }) => {
 
 	return (
 		<div className="auth-container">
-	
 			<Form className="form-container" onSubmit={handleSubmit}>
 				<div>
 					<FormGroup row>
@@ -61,7 +64,6 @@ const LogIn = ({ loginUser, close }) => {
 								className="fave-input"
 								onChange={handleChange}
 								required
-								
 							/>
 						</Col>
 					</FormGroup>
@@ -72,7 +74,6 @@ const LogIn = ({ loginUser, close }) => {
 				</Button>
 			</Form>
 			<br></br>
-			
 		</div>
 	);
 };
@@ -81,6 +82,11 @@ const mapStateToProps = createStructuredSelector({
 	user: selectUser,
 });
 
-const mapDispatchToProps = { loginUser };
+const mapDispatchToProps = (dispatch) => ({
+	loginUser: (user) => dispatch(loginUser(user)),
+	fetchFaves: (id) => dispatch(fetchFaves(id)),
+});
+
+// const mapDispatchToProps = { loginUser, fetchFaves(id) };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);

@@ -58,10 +58,7 @@ const strain_reducer = (state = INITIAL_STATE, action) => {
 				error: action.payload,
 			};
 
-		case UserTypes.LOGOUT_USER:
-			return {
-				...state,
-			};
+	
 		default:
 			return state;
 	}

@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+
 import { Form, FormGroup, Input, Label, Button, Col, Row } from "reactstrap";
 
-import { getMessage, getErrors } from "../redux/user/user.selectors";
 import { registerUser, resetState } from "../redux/user/user.actions";
 
 import "./homepage.styles.css";
@@ -11,7 +10,7 @@ import "./favorites.styles.css";
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
-const Register = ({ registerUser, close, message, error, resetState }) => {
+const Register = ({ registerUser, resetState }) => {
 	const [state, setState] = useState({
 		username: "",
 		password: "",
@@ -28,26 +27,23 @@ const Register = ({ registerUser, close, message, error, resetState }) => {
 		if (password !== confirmPassword) {
 			setPasswordMatch("Please check that your passwords match.");
 		} else {
-			console.log(message);
 			setPasswordMatch("");
-			await registerUser({ username, password });
-			await delay(3000);
-			console.log(message);
-
-			if (message === null) {
-				await delay(2000);
-				setNameTaken(`${error.error}`);
-				await delay(2000);
-				setStatus("");
-				setPasswordMatch("");
-				setNameTaken("");
-				resetState();
-			} else {
-				setNameTaken("");
-				setStatus(`${message}`);
-				await delay(3000);
-				close();
-			}
+			registerUser({ username, password })
+				.then(async (response) => {
+					setNameTaken("");
+					setStatus(`${response.data.message}`);
+				})
+				.catch(async (err) => {
+					// await delay(2000);
+					return (
+						setNameTaken(`${err.response.data.error}`),
+						await delay(5000),
+						setStatus(""),
+						setNameTaken(""),
+						setPasswordMatch(""),
+						resetState()
+					);
+				});
 		}
 	};
 
@@ -58,9 +54,6 @@ const Register = ({ registerUser, close, message, error, resetState }) => {
 
 	return (
 		<div className="auth-container">
-			<div className="status">
-				<i>{status}</i>
-			</div>
 			<Form className="form-container" onSubmit={handleSubmit}>
 				<div>
 					<FormGroup className="group" row>
@@ -132,11 +125,8 @@ const Register = ({ registerUser, close, message, error, resetState }) => {
 	);
 };
 
-const mapStateToProps = createStructuredSelector({
-	message: getMessage,
-	error: getErrors,
-});
+
 
 const mapDispatchToProps = { registerUser, resetState };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
+export default connect(null, mapDispatchToProps)(Register);

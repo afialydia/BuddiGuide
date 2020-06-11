@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { Modal, ModalBody } from "reactstrap";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";

@@ -44,7 +44,8 @@ const HomePage = ({ strains, getAllStrains, user_id }) => {
 	if (searchField === "") {
 		return (
 			<div className="strain-home">
-				<Header handleChange={handleChange} user_id={user_id} />
+				<Header handleChange={handleChange} 
+				user_id={user_id} />
 				<StrainContainer allStrains={allStrains} />
 			</div>
 		);

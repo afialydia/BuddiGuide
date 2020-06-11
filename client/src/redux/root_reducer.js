@@ -12,9 +12,9 @@ const combinedReducers = combineReducers({
 
 const root_reducer = (state, action) => {
     
-    if (action.type === UserTypes.LOGOUT_USER) {
-      state = undefined;
-    }
+    // if (action.type === UserTypes.LOGOUT_USER) {
+    //   state = undefined;
+    // }
   
     return combinedReducers(state, action);
   };

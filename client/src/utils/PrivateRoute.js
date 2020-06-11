@@ -1,15 +1,17 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
+import Login_Modal from "../components/login_modal";
+import menu from "../components/menu";
 
 function PrivateRoute({ component: Component, ...rest }) {
-		return (
+	return (
 		<Route
 			{...rest}
-			render={props => {
+			render={(props) => {
 				if (localStorage.getItem("authenticate")) {
 					return <Component {...props} />;
 				} else {
-					return <Redirect to={"/login"} />;
+					return <Redirect to={Login_Modal} />;
 				}
 			}}
 		/>

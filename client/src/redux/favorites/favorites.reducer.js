@@ -1,4 +1,6 @@
 import { FavoriteTypes } from "./favorites.types";
+import { UserTypes } from "../user/user.types";
+
 
 const INITIAL_STATE = {
 	fetchingFaves: false,
@@ -14,7 +16,7 @@ const INITIAL_STATE = {
 	faves: [],
 	fave: {},
 	error: "",
-	status:""
+	status: "",
 };
 
 const favorite_reducer = (state = INITIAL_STATE, action) => {
@@ -115,13 +117,16 @@ const favorite_reducer = (state = INITIAL_STATE, action) => {
 				deletedFave: true,
 				// fave: action.payload,
 				error: "",
-				status:action.payload
+				status: action.payload,
 			};
 		case FavoriteTypes.DELETE_FAVE_FAIL:
 			return {
 				...state,
 				error: action.payload,
 			};
+		case UserTypes.LOGOUT_USER:
+			return INITIAL_STATE;
+
 		default:
 			return state;
 	}
