@@ -7,6 +7,7 @@ import HomePage from "./page/HomePage";
 import Register from "./page/RegisterPager";
 import FavoritesPage from "./page/Favorites_page";
 import Login_Modal from "./components/login_modal";
+import Loader from "./components/loader";
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
 			<Switch>
 				<Route exact path="/" component={HomePage} />
 				<Route path="/register" component={Register} />
-				<Route path="/login" component={Login_Modal} />
+				<Route path="/login" component={Loader} />
 
 				<PrivateRoute path="/favorites" component={FavoritesPage} />
 			</Switch>

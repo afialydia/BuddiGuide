@@ -11,6 +11,7 @@ import { getAllStrains } from "../redux/strains/strain.actions";
 import "./homepage.styles.css";
 
 import { Header } from "../components/header";
+import Loader from "../components/loader";
 
 const HomePage = ({ strains, getAllStrains, user_id }) => {
 	const [searchField, setSearchField] = useState("");
@@ -39,28 +40,25 @@ const HomePage = ({ strains, getAllStrains, user_id }) => {
 	};
 
 	const fuse = new Fuse(allStrains, options);
-	
 
 	if (searchField === "") {
 		return (
 			<div className="strain-home">
-				<Header handleChange={handleChange} 
-				user_id={user_id} />
+				<Header handleChange={handleChange} user_id={user_id} />
 				<StrainContainer allStrains={allStrains} />
 			</div>
 		);
 	} else {
 		let filteredStrains = fuse.search(searchField);
-	
+
 		return (
 			<div className="strain-home">
-				<Header handleChange={handleChange}  user_id={user_id} />
+				<Header handleChange={handleChange} user_id={user_id} />
+				<Loader />
 				<StrainContainer filteredStrains={filteredStrains} />
 			</div>
 		);
 	}
-
-
 };
 
 const mapStateToProps = createStructuredSelector({
