@@ -1,0 +1,13 @@
+.gallery {
+	width: auto;
+	/* height:70%; */
+	margin: 0 auto;
+	/* margin-top:1%; */
+	/* z-index: -1; */
+	/* border: gold solid; */
+}
+
+.galleryContainer {
+	/* height: 50% !important; */
+	/* border: solid red; */
+}

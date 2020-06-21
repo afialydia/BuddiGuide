@@ -54,7 +54,6 @@ const HomePage = ({ strains, getAllStrains, user_id }) => {
 		return (
 			<div className="strain-home">
 				<Header handleChange={handleChange} user_id={user_id} />
-				<Loader />
 				<StrainContainer filteredStrains={filteredStrains} />
 			</div>
 		);

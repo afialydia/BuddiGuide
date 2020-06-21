@@ -7,7 +7,9 @@ h6 {
 	font-family: "Nunito", sans-serif;
 	color: rgb(244, 246, 222);
 }
-
+* {
+	box-sizing: border-box;
+}
 h6 {
 	font-size: 1rem;
 }
@@ -418,21 +420,20 @@ h3 {
 	position: relative;
 	margin: 0 auto;
 	overflow: hidden;
-	height: 70vh;
-	width: 95vw;
+	height: 80vh;
+	width: 95vw !important;
 	background: rgb(174, 179, 42);
 	padding: 20px;
 	font-size: 15px;
-	box-shadow: inset 0 0 1px grey;
+	box-shadow: 0 0 2px grey;
 }
 
 .sidebar-toggle {
 	border: solid gold;
 	position: absolute;
-	/* margin: 10%; */
-	color: #aa0;
+
 	z-index: 100;
-	transform: translate(90vw, 10vh);
+	transform: translate(90vw, 0vh);
 	font-size: 1.5em;
 	cursor: pointer;
 }
@@ -447,4 +448,53 @@ h3 {
 	display: flex;
 	flex-direction: column-reverse;
 	align-self: flex-end;
+}
+
+#cont-roots {
+	overscroll-behavior-y: contain;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	user-select: none;
+	font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+		helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+	position: fixed;
+	overflow: hidden;
+}
+
+#roots {
+	background: lightblue;
+	position: fixed;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	cursor: url("https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png")
+			39 39,
+		auto;
+}
+
+#roots > div {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	will-change: transform;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#roots > div > div {
+	background-color: white;
+	background-size: auto 85%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 45vh;
+	max-width: 300px;
+	height: 85vh;
+	max-height: 570px;
+	will-change: transform;
+	border-radius: 10px;
+	box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
+		0 10px 10px -10px rgba(50, 50, 73, 0.3);
 }

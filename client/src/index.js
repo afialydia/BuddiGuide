@@ -14,7 +14,7 @@ const rootElement = document.getElementById("root");
 ReactDOM.render(
 	<Provider store={store}>
 		<Router>
-			<PersistGate  persistor={persistor}>
+			<PersistGate loader={Loader} persistor={persistor}>
 				<App />
 			</PersistGate>
 		</Router>

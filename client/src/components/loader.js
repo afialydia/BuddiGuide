@@ -1,8 +1,10 @@
 import React, { Fragment } from "react";
 import { Keyframes, animated } from "react-spring/renderprops";
 import delay from "delay";
+import About from "./about/about-section";
 import "../page/homepage.styles.css";
 import buddi from "../assets/buddi.svg";
+import Carosel from "./about/carousel";
 // Creates a spring with predefined animation slots
 const Sidebar = Keyframes.Spring({
 	// Slots can take arrays/chains,
@@ -15,7 +17,7 @@ const Sidebar = Keyframes.Spring({
 	// or async functions with side-effects
 	close: async (call) => {
 		await delay(400);
-		await call({ delay: 0, x: -100 });
+		await call({ delay: 400, x: -200 });
 	},
 });
 
@@ -30,18 +32,7 @@ const Content = Keyframes.Trail({
 });
 
 const items = [
-	<Fragment>
-		<h1>Hey</h1>
-	</Fragment>,
-	<Fragment>
-		<h1>there</h1>
-	</Fragment>,
-	<Fragment>
-		<h1>Buddi</h1>
-	</Fragment>,
-	<Fragment>
-		<h1>Guide</h1>
-	</Fragment>,
+	<Carosel />,
 ];
 
 export default class Loader extends React.Component {

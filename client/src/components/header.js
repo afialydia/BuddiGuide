@@ -16,8 +16,7 @@ export const Header = ({ handleChange }) => {
 					<Link to="/favorites">
 						<Buddi_Menu />
 					</Link>
-								<Loader />
-
+					<Loader />
 				</div>
 				<div className="search-container">
 					<Link className="link" to="/">
