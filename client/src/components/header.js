@@ -5,9 +5,13 @@ import "../page/homepage.styles.css";
 import Buddi_Menu from "./buddi_menu";
 import { SearchBar } from "./search_bar";
 import { Container, Row, Button, Col } from "reactstrap";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { getUser } from "../redux/user/user.selectors";
 import Loader from "./loader";
 
-export const Header = ({ handleChange }) => {
+const Header = ({ handleChange, user }) => {
+	console.log(user)
 	return (
 		<div className="header-container">
 			<div className="splash"></div>{" "}
@@ -20,7 +24,8 @@ export const Header = ({ handleChange }) => {
 				</div>
 				<div className="search-container">
 					<Link className="link" to="/">
-						<h3>Hey There, Buddi Guide</h3>
+						{user.username ? <h3 className='username'>{user.username}'s BuddiGuide </h3> : <h3>Hey There, Buddi Guide</h3> }
+						{/* <h3>hi</h3> */}
 					</Link>
 					<SearchBar
 						placeholder={"Search Strains By Name, Type, Flavor, or Effect..."}
@@ -34,3 +39,9 @@ export const Header = ({ handleChange }) => {
 		</div>
 	);
 };
+
+const mapStateToProps = createStructuredSelector({
+	user: getUser
+});
+
+export default connect(mapStateToProps)(Header)

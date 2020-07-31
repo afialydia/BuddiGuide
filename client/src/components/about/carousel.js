@@ -7,10 +7,8 @@ import about_1 from "../../assets/about/about_1.svg";
 import "./about.styles.css";
 
 const images = [
-	about_1,
-	buddi,
-	"https://static.toiimg.com/thumb/msid-67586673,width-500,height-300,resizemode-75,imgsize-3918697,pt-32,y_pad-40/67586673.jpg",
-	"https://static.toiimg.com/thumb/msid-67586673,width-500,height-300,resizemode-75,imgsize-3918697,pt-32,y_pad-40/67586673.jpg",
+	about_1
+
 ];
 
 function Carosel() {

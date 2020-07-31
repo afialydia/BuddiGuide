@@ -10,7 +10,7 @@ import { getAllStrains } from "../redux/strains/strain.actions";
 
 import "./homepage.styles.css";
 
-import { Header } from "../components/header";
+import  Header  from "../components/header";
 import Loader from "../components/loader";
 
 const HomePage = ({ strains, getAllStrains, user_id }) => {

@@ -95,6 +95,10 @@ h3 {
 .fas.fa-heart:hover {
 	color: rgb(98, 46, 71, 0.8);
 }
+.username{
+	margin: 0 auto;
+	/* border: solid; */
+}
 .strain-card {
 	/* border: solid salmon; */
 	box-sizing: border-box;
@@ -415,17 +419,22 @@ h3 {
 }
 
 .sidebar {
-	/* border: solid teal; */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
 	border-radius: 4px;
 	position: relative;
-	margin: 0 auto;
+	margin: 0 auto !important;
 	overflow: hidden;
 	height: 80vh;
+
 	width: 95vw !important;
 	background: rgb(174, 179, 42);
 	padding: 20px;
 	font-size: 15px;
 	box-shadow: 0 0 2px grey;
+	
 }
 
 .sidebar-toggle {
@@ -497,4 +506,12 @@ h3 {
 	border-radius: 10px;
 	box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
 		0 10px 10px -10px rgba(50, 50, 73, 0.3);
+}
+
+.about {
+	margin: 1% auto;
+	padding: 1%;
+	width: 75%;
+	border-radius: 12px;
+	background: rgb(98, 46, 71, 0.8);
 }

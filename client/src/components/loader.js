@@ -2,9 +2,12 @@ import React, { Fragment } from "react";
 import { Keyframes, animated } from "react-spring/renderprops";
 import delay from "delay";
 import About from "./about/about-section";
+import bud from "../assets/about/bud.svg";
 import "../page/homepage.styles.css";
 import buddi from "../assets/buddi.svg";
 import Carosel from "./about/carousel";
+import '../page/homepage.styles.css'
+
 // Creates a spring with predefined animation slots
 const Sidebar = Keyframes.Spring({
 	// Slots can take arrays/chains,
@@ -32,11 +35,20 @@ const Content = Keyframes.Trail({
 });
 
 const items = [
-	<Carosel />,
+	<h3>Welcome to BuddiGuide!</h3>,
+	<img src={bud} />,
+	<div className="about">
+		<h5>
+			This website was designed to provide a resource for medical marijuana
+			users to research marijuana strains, and track their strain preferences.
+		</h5>
+		
+	</div>,
+	// <Carosel />,
 ];
 
 export default class Loader extends React.Component {
-	state = { open: undefined };
+	state = { open: false };
 	toggle = () => this.setState((state) => ({ open: !state.open }));
 	render() {
 		const state =
@@ -77,6 +89,7 @@ export default class Loader extends React.Component {
 						</animated.div>
 					)}
 				</Sidebar>
+				
 				<img
 					src={buddi}
 					type={`menu-${icon}`}
