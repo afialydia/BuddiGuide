@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { Form, FormGroup, Input, Label, Button, Col } from "reactstrap";
+import { Form, Row,FormGroup, Input, Label, Button, Col } from "reactstrap";
 import { selectUser } from "../redux/user/user.selectors";
 import { loginUser } from "../redux/user/user.actions";
 import { fetchFaves } from "../redux/favorites/favorites.actions";
@@ -15,14 +15,23 @@ const LogIn = ({ loginUser, fetchFaves, user, close }) => {
 		password: "",
 	});
 
+	const [error,setError] = useState("")
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const { username, password } = state;
 
-		loginUser({ username, password }).then(async (response) => {
+		loginUser({ username, password })
+		.then(async (response) => {
 			fetchFaves(response.data.user.id);
-		});
-	};
+		})
+		.catch(async (err) => {
+					// await delay(2000);
+					return ( 
+						setError(`${err.response.data.message}`)
+					)})
+						
+	}
 
 	const handleChange = (e) => {
 		const { value, name } = e.target;
@@ -65,6 +74,9 @@ const LogIn = ({ loginUser, fetchFaves, user, close }) => {
 								onChange={handleChange}
 								required
 							/>
+							<Row className="status">
+								<i>{error}</i>
+							</Row>
 						</Col>
 					</FormGroup>
 				</div>
