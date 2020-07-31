@@ -90,12 +90,12 @@ export default class Loader extends React.Component {
 					)}
 				</Sidebar>
 				
-				<img
-					src={buddi}
-					type={`menu-${icon}`}
+				<h5
+					// src={buddi}
+					// type={`menu-${icon}`}
 					className="sidebar-toggle"
 					onClick={this.toggle}
-				/>
+				>About BuddiGuide</h5>
 			</div>
 		);
 	}

@@ -20,15 +20,17 @@ const Header = ({ handleChange, user }) => {
 					</Link>
 					{/* <Loader /> */}
 				</div>
-				<div className="search-container">
+				<div className="search-container"><span>
 					<Link className="link" to="/">
 						{user.username ? <h3 className='username'>{user.username}'s BuddiGuide </h3> : <h3>Hey There, Buddi Guide</h3> }
 						{/* <h3>hi</h3> */}
-					</Link>
+					</Link></span><span>
 					<SearchBar
 						placeholder={"Search Strains By Name, Type, Flavor, or Effect..."}
 						handleChange={handleChange}
-					/>
+					/></span>
+					<span><h3 className="FAQ">FAQ</h3></span>
+
 				</div>
 				<div className="spacer">
 					<Menu />
