@@ -21,7 +21,7 @@ const Menu = ({ logOutUser, user }) => {
 		<>
 			<h5>
 				{user.hasOwnProperty("id") ? (
-					<div className="option" onClick={logOutUser}>
+					<div onClick={logOutUser}>
 						Log Out
 					</div>
 				) : (

@@ -11,16 +11,14 @@ import { getUser } from "../redux/user/user.selectors";
 import Loader from "./loader";
 
 const Header = ({ handleChange, user }) => {
-	console.log(user)
 	return (
 		<div className="header-container">
-			<div className="splash"></div>{" "}
 			<div className="header-nav">
-				<div>
+				<div className="fave-nav">
 					<Link to="/favorites">
 						<Buddi_Menu />
 					</Link>
-					<Loader />
+					{/* <Loader /> */}
 				</div>
 				<div className="search-container">
 					<Link className="link" to="/">
