@@ -25,7 +25,7 @@ const Header = ({ handleChange, user }) => {
 						<Link className="noline" to="/">
 						{/* {user.username ? <h5 className='link'>{user.username}'s BuddiGuide </h5> :  */}
 						<h5 className="link">BuddiGuide</h5>
-						//  }
+						
 						</Link>
 					</span>
 
