@@ -8,7 +8,7 @@ import { Container, Row, Button, Col } from "reactstrap";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { getUser } from "../redux/user/user.selectors";
-import Loader from "./loader";
+import FAQ from "./loader";
 
 const Header = ({ handleChange, user }) => {
 	return (
@@ -23,7 +23,6 @@ const Header = ({ handleChange, user }) => {
 				<div className="search-container">
 					<span>
 						<Link className="noline" to="/">
-						{/* {user.username ? <h5 className='link'>{user.username}'s BuddiGuide </h5> :  */}
 						<h5 className="link">BuddiGuide</h5>
 						
 						</Link>
@@ -31,7 +30,8 @@ const Header = ({ handleChange, user }) => {
 
 					<span>
 						<h5>
-							<a className="link" href="">FAQ</a>
+							<FAQ/>
+							{/* <FAQ className='link'/> */}
 						</h5>
 					</span>
 					

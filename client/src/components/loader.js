@@ -1,102 +1,81 @@
-import React, { Fragment } from "react";
-import { Keyframes, animated } from "react-spring/renderprops";
-import delay from "delay";
-import About from "./about/about-section";
-import bud from "../assets/about/bud.svg";
+import React, { useState } from "react";
+import { Modal, ModalBody } from "reactstrap";
+
 import "../page/homepage.styles.css";
-import buddi from "../assets/buddi.svg";
-import Carosel from "./about/carousel";
-import '../page/homepage.styles.css'
+import "../page/favorites.styles.css";
 
-// Creates a spring with predefined animation slots
-const Sidebar = Keyframes.Spring({
-	// Slots can take arrays/chains,
-	peek: [
-		{ x: 0, from: { x: -200 }, delay: 500 },
-		{ x: -200, delay: 800 },
-	],
-	// single items,
-	open: { delay: 0, x: 0 },
-	// or async functions with side-effects
-	close: async (call) => {
-		await delay(400);
-		await call({ delay: 400, x: -200 });
-	},
-});
+const FAQ = () => {
+	const [modal, setModal] = useState(false);
 
-// Creates a keyframed trail
-const Content = Keyframes.Trail({
-	peek: [
-		{ x: 0, opacity: 1, from: { x: -100, opacity: 0 }, delay: 600 },
-		{ x: -100, opacity: 0, delay: 0 },
-	],
-	open: { x: 0, opacity: 1, delay: 100 },
-	close: { x: -100, opacity: 0, delay: 0 },
-});
+	const close = () => setModal(!modal);
 
-const items = [
-	<h3>Welcome to BuddiGuide!</h3>,
-	<img src={bud} />,
-	<div className="about">
-		<h5>
-			This website was designed to provide a resource for medical marijuana
-			users to research marijuana strains, and track their strain preferences.
-		</h5>
-		
-	</div>,
-	// <Carosel />,
-];
+	const [activeTab, setActiveTab] = useState("1");
 
-export default class Loader extends React.Component {
-	state = { open: false };
-	toggle = () => this.setState((state) => ({ open: !state.open }));
-	render() {
-		const state =
-			this.state.open === undefined
-				? "peek"
-				: this.state.open
-				? "open"
-				: "close";
-		const icon = this.state.open ? "fold" : "unfold";
-		return (
-			<div className="toggie">
-				<Sidebar native state={state}>
-					{({ x }) => (
-						<animated.div
-							className="sidebar"
-							style={{
-								transform: x.interpolate((x) => `translate3d(${x}%,0,0)`),
-							}}
-						>
-							<Content
-								native
-								items={items}
-								keys={items.map((_, i) => i)}
-								reverse={!this.state.open}
-								state={state}
-							>
-								{(item, i) => ({ x, ...props }) => (
-									<animated.div
-										style={{
-											transform: x.interpolate((x) => `translate3d(${x}%,0,0)`),
-											...props,
-										}}
-									>
-										<span className={i === 0 ? "middle" : ""}>{item}</span>
-									</animated.div>
-								)}
-							</Content>
-						</animated.div>
-					)}
-				</Sidebar>
-				
-				<h5
-					// src={buddi}
-					// type={`menu-${icon}`}
-					className="sidebar-toggle"
-					onClick={this.toggle}
-				>About BuddiGuide</h5>
-			</div>
-		);
-	}
-}
+	const toggle = (tab) => {
+		if (activeTab !== tab) setActiveTab(tab);
+	};
+
+	return (
+		<>
+			<Modal
+				isOpen={modal}
+				size="lg"
+				aria-labelledby="contained-modal-title-vcenter"
+				centered={false}
+				backdrop={true}
+				fade={true}
+				autoFocus={true}
+				toggle={close}
+				className="faq-modal"
+				contentClassName="faq-content"
+			>
+				<ModalBody>
+					<div>
+						<h5>Hey there, I'm BuddiGuide — </h5>
+						<p>
+							A web app designed to provide medical marijuana consumers with a
+							resource to research and track their strain preference.
+						</p>
+						<p>
+							Don't think of me as a doctor. I'm more, a friend who knows enough
+							about marijuana strains to describe their idiosyncratic
+							differences. Some could say I'm a strain sommelier. Or dang the
+							joke was right there - think of me as a Buddi Guide.
+						</p>
+						<h5>BuddiGuide's Mission:</h5>
+						<p>
+							<b>
+								To empower consumers to make informed selections when choosing
+								marijuana strains.
+							</b>{" "}
+							With over 2000 strains in our database, app users can find their
+							faves by searching through marijuana strains by strain name,
+							strain type, flavor, and/or intended effect.
+						</p>
+						<p>
+							<b>To streamline the process of going to the dispensary.</b> When
+							consumers know what they want and can filter through options
+							beforehand, making a dispensary trip can be a lot less daunting.
+						</p>
+						<p>
+							<b>To keep the good vibes flowing.</b> Not all strains work well
+							for all people. With BuddiGuide, registered app users can save
+							marijuana strains to their profile, rate them based on their
+							preference, and document their experiences. Never forget a strain
+							that you love. Never regret knowing what doesn't work.
+						</p>
+					</div>
+				</ModalBody>
+			</Modal>
+			<span
+				onClick={() => {
+					close();
+				}}
+			>
+				About
+			</span>
+		</>
+	);
+};
+
+export default FAQ;

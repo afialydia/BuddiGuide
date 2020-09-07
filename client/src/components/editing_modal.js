@@ -64,7 +64,7 @@ const EditingModal = ({ fave, user_id, editFave, toggle }, props) => {
 								name="personal_rating"
 								onChange={handleChange}
 							>
-								<option>{fave.personal_rating}</option>
+								<option>Status: {fave.personal_rating}</option>
 								<option>Loved It</option>
 								<option>Liked It</option>
 								<option>Have Not Tried Yet</option>

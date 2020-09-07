@@ -23,7 +23,9 @@
 		"nodemon": "^2.0.3",
 		"pg": "^8.0.2"
 	},
-	"devDependencies": {},
+	"devDependencies": {
+		"@appnest/readme": "^1.2.7"
+	},
 	"scripts": {
 		"start": "node index.js",
 		"server": "nodemon index.js",
