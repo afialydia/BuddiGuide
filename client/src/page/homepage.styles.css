@@ -518,16 +518,22 @@ h3 {
 	display: flex;
 	justify-content: flex-end;
 }
-.faq-modal h4:hover {
+.faq-click h5:hover {
 	color: rgb(98, 46, 71, 0.8);
 	cursor: pointer;
 }
-.faq-modal span {
+.faq-click h5:active{
+	transform: translateY(4px);
+}
+.faq-click {
 	position: relative;
 	margin: 0 auto;
 	display: flex;
 	justify-content: flex-end;
+	/* border:solid; */
 }
+
+
 
 .faq-content {
 	background: rgb(174, 179, 42);
@@ -544,4 +550,17 @@ h3 {
 	place-items: center;
 	/* border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% ; */
 
+}
+
+.afia{
+	color: rgb(98, 46, 71, 0.8);
+}
+
+.afia:hover{
+	color: rgb(244, 246, 222);
+	text-decoration: none;
+}
+
+.afia:active{
+	color: rgb(244, 246, 222);
 }

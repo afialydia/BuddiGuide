@@ -17,7 +17,7 @@ function App() {
 			<Switch>
 				<Route exact path="/" component={HomePage} />
 				<Route path="/register" component={Register} />
-				<Route path="/login" component={About} />
+				{/* <Route path="/login" component={About} /> */}
 
 				<PrivateRoute path="/favorites" component={FavoritesPage} />
 			</Switch>

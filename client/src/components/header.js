@@ -31,7 +31,6 @@ const Header = ({ handleChange, user }) => {
 					<span>
 						<h5>
 							<FAQ/>
-							{/* <FAQ className='link'/> */}
 						</h5>
 					</span>
 					

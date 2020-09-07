@@ -30,8 +30,12 @@ const FAQ = () => {
 				contentClassName="faq-content"
 			>
 				<ModalBody>
+				<span className="faq-click"
+				onClick={() => {
+					close();
+				}}><h5>close</h5></span>
 					<div>
-						<h5>Hey there, I'm BuddiGuide — </h5>
+						<h5 style={{color: "rgb(98, 46, 71, 0.8)"}}>Hey there, I'm BuddiGuide — </h5>
 						<p>
 							A web app designed to provide medical marijuana consumers with a
 							resource to research and track their strain preference.
@@ -42,7 +46,7 @@ const FAQ = () => {
 							differences. Some could say I'm a strain sommelier. Or dang the
 							joke was right there - think of me as a Buddi Guide.
 						</p>
-						<h5>BuddiGuide's Mission:</h5>
+						<h5 style={{color: "rgb(98, 46, 71, 0.8)"}}>BuddiGuide's Mission:</h5>
 						<p>
 							<b>
 								To empower consumers to make informed selections when choosing
@@ -65,14 +69,16 @@ const FAQ = () => {
 							that you love. Never regret knowing what doesn't work.
 						</p>
 					</div>
+					<span>Developed w/ love by <a href="https://afiacaruso.com/" target="_blank" className="afia" ><b>Afia Caruso</b></a></span>
 				</ModalBody>
 			</Modal>
 			<span
+			className="faq-click"
 				onClick={() => {
 					close();
 				}}
 			>
-				About
+				<h5>About</h5>
 			</span>
 		</>
 	);
