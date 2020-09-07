@@ -45,7 +45,7 @@ const HomePage = ({ strains, getAllStrains, user_id }) => {
 		return (
 			<div className="strain-home">
 				<Header handleChange={handleChange} user_id={user_id} />
-				{/* <StrainContainer allStrains={allStrains} /> */}
+				<StrainContainer allStrains={allStrains} />
 			</div>
 		);
 	} else {
