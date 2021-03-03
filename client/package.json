@@ -38,7 +38,7 @@
   "axios": ">=0.21.1"  
   "redux-logger": "^3.0.6",
 
-}
+},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
