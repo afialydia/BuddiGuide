@@ -24,7 +24,7 @@ const Header = ({ handleChange, user }) => {
 				<div className="search-container">
 					<span>
 						<Link className="noline" to="/">
-							<h5 className="link">BuddiGuide</h5>
+							<h5 className="link">{"BuddiGuide"}</h5>
 						</Link>
 					</span>
 

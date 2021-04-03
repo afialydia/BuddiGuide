@@ -68,8 +68,8 @@ const Login_Modal = () => {
 								>
 									<div className="reg">
 										<i>
-											Don't have an account? <br></br>
-											<h6>Sign Up</h6>
+											{"Don't have an account?"} <br></br>
+											<h6>{"Sign Up"}</h6>
 										</i>
 									</div>
 								</NavLink>
@@ -85,8 +85,9 @@ const Login_Modal = () => {
 								>
 									<div className="reg">
 										<i>
-											Have an account?<br></br>
-											<h6>Log In</h6>
+											{"Have an account?"}
+											<br></br>
+											<h6> {"Login"}</h6>
 										</i>
 									</div>
 								</NavLink>
@@ -100,7 +101,7 @@ const Login_Modal = () => {
 					close();
 				}}
 			>
-				Login
+				{"Login"}
 			</span>
 		</>
 	);

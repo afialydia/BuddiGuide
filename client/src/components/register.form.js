@@ -58,7 +58,7 @@ const Register = ({ registerUser, resetState }) => {
 					<FormGroup className="group" row>
 						<Col lg={10}>
 							<Label for="username" sm={2}>
-								Username:
+								{"Username:"}
 							</Label>
 							<br></br>
 							<Input
@@ -78,7 +78,7 @@ const Register = ({ registerUser, resetState }) => {
 					<FormGroup className="group" row>
 						<Col lg={10}>
 							<Label for="password" sm={2}>
-								Password:
+								{"Password:"}
 							</Label>
 							<br></br>
 							<Input
@@ -95,7 +95,7 @@ const Register = ({ registerUser, resetState }) => {
 					<FormGroup className="group" row>
 						<Col lg={10}>
 							<Label for="confirmPassword" lg={6}>
-								Confirm Password:
+								{"Confirm Password:"}
 							</Label>
 							<br></br>
 							<Input
@@ -110,13 +110,14 @@ const Register = ({ registerUser, resetState }) => {
 
 							<div className="status">
 								<i>{passwordMatch}</i>
+								<span>{status}</span>
 							</div>
 						</Col>
 					</FormGroup>
 				</div>
 
 				<Button color="rgb(98, 46, 71, 0.8)" className="fave-button">
-					Submit
+					{"Submit"}
 				</Button>
 			</Form>
 			<br></br>

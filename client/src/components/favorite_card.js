@@ -22,7 +22,7 @@ export const FavoritesCard = ({ strain }, props) => {
 						<span>
 							<i>{personal_rating}</i>
 						</span>
-						<p>Notes: {notes}</p>
+						<p>{"Notes:"} {notes}</p>
 						{/* <p>{strain.fid}</p> */}
 					</div>
 				</div>

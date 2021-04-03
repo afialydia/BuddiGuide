@@ -47,16 +47,17 @@ const About = () => {
 							joke was right there - think of me as a Buddi Guide.
 						</p>
 						<h5 style={{ color: "rgb(98, 46, 71, 0.8)" }}>
-							BuddiGuide's Mission:
+							{"BuddiGuide's Mission:"}
 						</h5>
 						<p>
 							<b>
-								To empower consumers to make informed selections when choosing
-								marijuana strains.
+								{
+									"To empower consumers to make informed selections when choosing marijuana strains."
+								}
 							</b>{" "}
-							With over 2000 strains in our database, app users can find their
-							faves by searching through marijuana strains by strain name,
-							strain type, flavor, and/or intended effect.
+							{
+								"With over 2000 strains in our database, app users can find their faves by searching through marijuana strains by strain name, strain type, flavor, and/or intended effect."
+							}
 						</p>
 						<p>
 							<b>To streamline the process of going to the dispensary.</b> When
@@ -72,9 +73,14 @@ const About = () => {
 						</p>
 					</div>
 					<span>
-						Developed w/ love by{" "}
-						<a href="https://afiacaruso.com/" target="_blank"  rel="noreferrer" className="afia">
-							<b>Afia Caruso</b>
+						{"Developed w/ love by"}
+						<a
+							href="https://afiacaruso.com/"
+							target="_blank"
+							rel="noreferrer"
+							className="afia"
+						>
+							<b> {"Afia Caruso"}</b>
 						</a>
 					</span>
 				</ModalBody>
@@ -85,7 +91,7 @@ const About = () => {
 					close();
 				}}
 			>
-				<h5>About</h5>
+				<h5>{"About"}</h5>
 			</span>
 		</>
 	);

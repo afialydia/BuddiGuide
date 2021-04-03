@@ -10,17 +10,14 @@ import "../page/home.styles.css";
 import "../page/favorites.styles.css";
 
 const Menu = ({ logOutUser, user }) => {
-
 	return (
-		<>
-			<h5>
-				{user.hasOwnProperty("id") ? (
-					<div onClick={logOutUser}>Log Out</div>
-				) : (
-					<Login_Modal />
-				)}
-			</h5>
-		</>
+		<h5>
+			{Object.prototype.hasOwnProperty.call(user, "id") ? (
+				<div onClick={logOutUser}>{"Log Out"}</div>
+			) : (
+				<Login_Modal />
+			)}
+		</h5>
 	);
 };
 
