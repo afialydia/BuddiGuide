@@ -17,11 +17,11 @@ import "./favorites.styles.css";
 const Login_Modal = () => {
 	const [modal, setModal] = useState(false);
 
-	const close = () => setModal(!modal);
+	const toggle = () => setModal(!modal);
 
 	const [activeTab, setActiveTab] = useState("1");
 
-	const toggle = (tab) => {
+	const tabToggle = (tab) => {
 		if (activeTab !== tab) setActiveTab(tab);
 	};
 
@@ -35,22 +35,22 @@ const Login_Modal = () => {
 				backdrop={true}
 				fade={true}
 				autoFocus={true}
-				toggle={close}
+				tabToggle={toggle}
 				className="menu-modal"
 				contentClassName="menu-content"
 			>
-				<ModalBody className="">
+				<ModalBody>
 					<div tabs>
 						<NavLink
 							className={classnames({ active: activeTab === "1" })}
 							onClick={() => {
-								toggle("1");
+								tabToggle("1");
 							}}
 						>
 							<span>
 								<i
 									onClick={async () => {
-										await close();
+										await toggle();
 									}}
 									class="fas fa-times"
 								/>
@@ -59,16 +59,16 @@ const Login_Modal = () => {
 
 						<TabContent activeTab={activeTab}>
 							<TabPane tabId="1">
-								<LogIn close={close} />
+								<LogIn toggle={toggle} />
 								<NavLink
 									className={classnames({ active: activeTab === "2" })}
 									onClick={() => {
-										toggle("2");
+										tabToggle("2");
 									}}
 								>
 									<div className="reg">
 										<i>
-											{"Don't have an account?"} <br></br>
+											{"Don't have an account?"} <br />
 											<h6>{"Sign Up"}</h6>
 										</i>
 									</div>
@@ -76,17 +76,17 @@ const Login_Modal = () => {
 							</TabPane>
 
 							<TabPane tabId="2">
-								<Register close={close} />
+								<Register toggle={toggle} />
 								<NavLink
 									className={classnames({ active: activeTab === "2" })}
 									onClick={() => {
-										toggle("1");
+										tabToggle("1");
 									}}
 								>
 									<div className="reg">
 										<i>
 											{"Have an account?"}
-											<br></br>
+											<br />
 											<h6> {"Login"}</h6>
 										</i>
 									</div>
@@ -98,7 +98,7 @@ const Login_Modal = () => {
 			</Modal>
 			<span
 				onClick={() => {
-					close();
+					toggle();
 				}}
 			>
 				{"Login"}
