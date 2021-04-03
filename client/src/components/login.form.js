@@ -43,7 +43,7 @@ const LogIn = ({ loginUser, fetchFaves }) => {
 					<FormGroup row>
 						<Col lg={10}>
 							<Label for="username" sm={2}>
-								Username:
+								{"Username:"}
 							</Label>
 							<br></br>
 							<Input
@@ -60,7 +60,7 @@ const LogIn = ({ loginUser, fetchFaves }) => {
 					<FormGroup row>
 						<Col lg={10}>
 							<Label for="password" sm={2}>
-								Password:
+								{"Password:"}
 							</Label>
 							<br></br>
 							<Input
@@ -80,7 +80,7 @@ const LogIn = ({ loginUser, fetchFaves }) => {
 				</div>
 
 				<Button color="rgb(98, 46, 71, 0.8)" className="fave-button">
-					Submit
+					{"Submit"}
 				</Button>
 			</Form>
 			<br></br>

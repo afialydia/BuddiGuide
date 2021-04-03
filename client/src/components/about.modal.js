@@ -30,21 +30,21 @@ const About = () => {
 							close();
 						}}
 					>
-						<h5>close</h5>
+						<h5>{"close"}</h5>
 					</span>
 					<div>
 						<h5 style={{ color: "rgb(98, 46, 71, 0.8)" }}>
-							Hey there, I'm BuddiGuide —{" "}
+							{"Hey there, I'm BuddiGuide — "}
 						</h5>
 						<p>
-							A web app designed to provide medical marijuana consumers with a
-							resource to research and track their strain preference.
+							{
+								"A web app designed to provide medical marijuana consumers with a resource to research and track their strain preference."
+							}
 						</p>
 						<p>
-							Don't think of me as a doctor. I'm more, a friend who knows enough
-							about marijuana strains to describe their idiosyncratic
-							differences. Some could say I'm a strain sommelier. Or dang the
-							joke was right there - think of me as a Buddi Guide.
+							{
+								"Don't think of me as a doctor. I'm more, a friend who knows enough about marijuana strains to describe their idiosyncratic differences. Some could say I'm a strain sommelier. Or dang the joke was right there - think of me as a Buddi Guide."
+							}
 						</p>
 						<h5 style={{ color: "rgb(98, 46, 71, 0.8)" }}>
 							{"BuddiGuide's Mission:"}
@@ -60,16 +60,10 @@ const About = () => {
 							}
 						</p>
 						<p>
-							<b>To streamline the process of going to the dispensary.</b> When
-							consumers know what they want and can filter through options
-							beforehand, making a dispensary trip can be a lot less daunting.
+							<b>{"To streamline the process of going to the dispensary."}</b>{" When consumers know what they want and can filter through options beforehand, making a dispensary trip can be a lot less daunting."}
 						</p>
 						<p>
-							<b>To keep the good vibes flowing.</b> Not all strains work well
-							for all people. With BuddiGuide, registered app users can save
-							marijuana strains to their profile, rate them based on their
-							preference, and document their experiences. Never forget a strain
-							that you love. Never regret knowing what doesn't work.
+							<b>{"To keep the good vibes flowing."}</b> {"Not all strains work well for all people. With BuddiGuide, registered app users can save marijuana strains to their profile, rate them based on their preference, and document their experiences. Never forget a strain that you love. Never regret knowing what doesn't work."}
 						</p>
 					</div>
 					<span>
