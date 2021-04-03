@@ -1,6 +1,5 @@
 import React from "react";
 import { Gallery, GalleryImage } from "react-gesture-gallery";
-import buddi from "../../assets/buddi.svg";
 import about_1 from "../../assets/about/about_1.svg";
 
 

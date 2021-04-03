@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { Badge } from 'reactstrap';
+import { Badge } from "reactstrap";
 
 import { fetchFaves } from "../redux/favorites/favorites.actions";
 import { getUserId } from "../redux/user/user.selectors";
@@ -9,7 +9,7 @@ import { getUserId } from "../redux/user/user.selectors";
 import { selectFaveAmount } from "../redux/favorites/favorites.selectors";
 
 import buddi from "../assets/buddi.svg";
-import "../page/homepage.styles.css";
+import "../page/home.styles.css";
 
 const Buddi_Menu = ({ user_id, getAllFavorites, faves }) => {
 	useEffect(() => {

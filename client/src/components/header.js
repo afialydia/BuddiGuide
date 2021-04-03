@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Menu from "./menu";
-import "../page/homepage.styles.css";
+import "../page/home.styles.css";
 import Buddi_Menu from "./buddi_menu";
-import { SearchBar } from "./search_bar";
+import { SearchBar } from "./searchBar";
 import { Container, Row, Button, Col } from "reactstrap";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -23,25 +23,22 @@ const Header = ({ handleChange, user }) => {
 				<div className="search-container">
 					<span>
 						<Link className="noline" to="/">
-						<h5 className="link">BuddiGuide</h5>
-						
+							<h5 className="link">BuddiGuide</h5>
 						</Link>
 					</span>
 
 					<span>
 						<h5>
-							<FAQ/>
+							<FAQ />
 						</h5>
 					</span>
-					
+
 					<span>
 						<SearchBar
 							placeholder={"Search Strains By Name, Type, Flavor, or Effect..."}
 							handleChange={handleChange}
 						/>
 					</span>
-					
-
 				</div>
 				<div className="spacer">
 					<Menu />
@@ -52,7 +49,7 @@ const Header = ({ handleChange, user }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-	user: getUser
+	user: getUser,
 });
 
-export default connect(mapStateToProps)(Header)
+export default connect(mapStateToProps)(Header);

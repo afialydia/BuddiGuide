@@ -4,7 +4,6 @@ import '../page/favorites.styles.css'
 
 
 export const FavoritesContainer = (props) => {
-	// console.log(props)
 	let strains = props.strains
 
 	return (

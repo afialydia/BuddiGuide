@@ -2,7 +2,7 @@ import React from "react";
 import EditFavorite from "./edit_favorite";
 import RemoveFavorite from "./remove_favorite";
 import "../page/favorites.styles.css";
-import "../page/homepage.styles.css";
+import "../page/home.styles.css";
 
 export const FavoritesCard = ({ strain }, props) => {
 	const { fid, strain: name, type, personal_rating, notes } = strain;

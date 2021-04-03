@@ -1,9 +1,9 @@
 import React from "react";
-import "../page/homepage.styles.css";
-import useToggle from "../hooks/use_toggle";
+import "../page/home.styles.css";
+import useToggle from "../hooks/useToggle";
 import FavoriteStrain from "./favorite";
 
-export const Card = ({ strain }) => {
+export const StrainContentsCard = ({ strain }) => {
 	const [front, back] = useToggle(true);
 
 	const { id, strain: name, type, effects, flavor, description } = strain;
@@ -22,7 +22,6 @@ export const Card = ({ strain }) => {
 						<br />
 						<i>{effects}</i>
 						<br />
-						{/* <p>{strain.id}</p> */}
 					</div>
 				) : (
 					<div>

@@ -13,6 +13,7 @@ const EditFavorite = ({ fid, fetchFave, user_id, fave }, props) => {
 	const [modal, setModal] = useState(false);
 
 	const toggle = () => setModal(!modal);
+	
 	const delay = ms => new Promise(res => setTimeout(res, ms));
 
 	const orderedTog = async ({ fid, user_id }) => {
