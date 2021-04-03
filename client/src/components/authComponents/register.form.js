@@ -60,7 +60,7 @@ const Register = ({ registerUser, resetState }) => {
 							<Label for="username" sm={2}>
 								{"Username:"}
 							</Label>
-							<br></br>
+							<br />
 							<Input
 								size="lg"
 								type="text"
@@ -80,7 +80,7 @@ const Register = ({ registerUser, resetState }) => {
 							<Label for="password" sm={2}>
 								{"Password:"}
 							</Label>
-							<br></br>
+							<br />
 							<Input
 								size="lg"
 								type="password"
@@ -97,7 +97,7 @@ const Register = ({ registerUser, resetState }) => {
 							<Label for="confirmPassword" lg={6}>
 								{"Confirm Password:"}
 							</Label>
-							<br></br>
+							<br />
 							<Input
 								size="lg"
 								type="password"
@@ -120,7 +120,7 @@ const Register = ({ registerUser, resetState }) => {
 					{"Submit"}
 				</Button>
 			</Form>
-			<br></br>
+			<br />
 		</div>
 	);
 };

@@ -14,11 +14,11 @@ export const FaveCard = ({ strain }, props) => {
 					<span>
 						<EditFave fid={fid} /> <RemoveFavorite fid={fid} />
 					</span>
-					<br></br>
+					<br />
 					<div className="favorites-content">
 						<h3>{name.toUpperCase()}</h3>
 						<i>{type.toUpperCase()}</i>
-						<br></br>
+						<br />
 						<span>
 							<i>{personal_rating}</i>
 						</span>

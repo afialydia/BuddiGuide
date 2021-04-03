@@ -27,8 +27,8 @@ const EditFave = ({ fid, fetchFave, user_id, fave }, props) => {
 				isOpen={modal}
 				size="sm"
 				aria-labelledby="contained-modal-title-vcenter"
-				fade={true}
-				autoFocus={true}
+				fade
+				autoFocus
 				toggle={toggle}
 				className="edit-fave-container"
 				contentClassName="edit-fave"
@@ -41,8 +41,8 @@ const EditFave = ({ fid, fetchFave, user_id, fave }, props) => {
 				onClick={ () => {
 					orderedTog({ fid, user_id })
 				}}
-				class="fas fa-pencil-alt"
-			></i>
+				className="fas fa-pencil-alt"
+			 />
 		</>
 	);
 };

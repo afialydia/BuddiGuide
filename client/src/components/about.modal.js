@@ -16,9 +16,9 @@ const About = () => {
 				size="lg"
 				aria-labelledby="contained-modal-title-vcenter"
 				centered={false}
-				backdrop={true}
-				fade={true}
-				autoFocus={true}
+				backdrop
+				fade
+				autoFocus
 				toggle={close}
 				className="faq-modal"
 				contentClassName="faq-content"

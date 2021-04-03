@@ -32,9 +32,9 @@ const AuthModal = () => {
 				size="sm"
 				aria-labelledby="contained-modal-title-vcenter"
 				centered={false}
-				backdrop={true}
-				fade={true}
-				autoFocus={true}
+				backdrop
+				fade
+				autoFocus
 				tabToggle={toggle}
 				className="menu-modal"
 				contentClassName="menu-content"
@@ -52,7 +52,7 @@ const AuthModal = () => {
 									onClick={async () => {
 										await toggle();
 									}}
-									class="fas fa-times"
+									className="fas fa-times"
 								/>
 							</span>
 						</NavLink>
