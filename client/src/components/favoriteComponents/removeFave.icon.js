@@ -8,8 +8,8 @@ const RemoveFave = ({ fid, deleteFave, user_id }, props) => {
 	return (
 		<i
 			onClick={() => deleteFave({ fid, user_id }, props)}
-			class="fas fa-times"
-		></i>
+			className="fas fa-times"
+		 />
 	);
 };
 

@@ -17,7 +17,7 @@ export const StrainContentsCard = ({ strain }) => {
 					<div>
 						<br />
 						<h3>{name.toUpperCase()}</h3>
-						<br></br>
+						<br />
 						<h6>{type.toUpperCase()}</h6>
 						<br />
 						<i>{effects}</i>

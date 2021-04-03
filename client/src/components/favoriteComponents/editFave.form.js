@@ -37,7 +37,7 @@ const EditFaveForm = ({ fave, user_id, editFave, toggle }, props) => {
 					onClick={async () => {
 						await toggle();
 					}}
-					class="fas fa-times"
+					className="fas fa-times"
 				/>
 			</span>
 			<div className="edit-fave">
@@ -49,7 +49,7 @@ const EditFaveForm = ({ fave, user_id, editFave, toggle }, props) => {
 							<Label for="personal rating" sm={2}>
 								Rating:
 							</Label>
-							<br></br>
+							<br />
 							<Input
 								size="lg"
 								type="select"
@@ -74,7 +74,7 @@ const EditFaveForm = ({ fave, user_id, editFave, toggle }, props) => {
 							<Label for="notes" sm={2}>
 								Notes:
 							</Label>
-							<br></br>
+							<br />
 							<Input
 								size="lg"
 								type="textarea"

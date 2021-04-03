@@ -45,7 +45,7 @@ const LogIn = ({ loginUser, fetchFaves }) => {
 							<Label for="username" sm={2}>
 								{"Username:"}
 							</Label>
-							<br></br>
+							<br />
 							<Input
 								size="lg"
 								type="text"
@@ -62,7 +62,7 @@ const LogIn = ({ loginUser, fetchFaves }) => {
 							<Label for="password" sm={2}>
 								{"Password:"}
 							</Label>
-							<br></br>
+							<br />
 							<Input
 								size="lg"
 								type="password"
@@ -83,7 +83,7 @@ const LogIn = ({ loginUser, fetchFaves }) => {
 					{"Submit"}
 				</Button>
 			</Form>
-			<br></br>
+			<br />
 		</div>
 	);
 };
