@@ -72,13 +72,6 @@ router.get("/:user_id", authenticate, verify_user, (req, res) => {
 		);
 });
 
-// router.delete("/:user_id", authenticate, verify_user, (req, res) => {
-// 	const user_id = req.params;
-
-// 	Users.deleteUser(parseInt(user_id)
-// 		.then(user => res.status(200).json({message: 'User has been deleted', user}))
-// 		.catch(err => res.status(500).json({message: `Sorry that didn't work ${err}`}));
-// });
 
 //Get all of a customer's favorites
 router.get("/:user_id/favorites", authenticate, verify_user, (req, res) => {
@@ -131,7 +124,7 @@ router.put(
 	verify_user,
 	verify_ownership,
 	(req, res) => {
-		const { user_id, fid } = req.params;
+		const { fid } = req.params;
 		const update = req.body;
 
 		Users.updateFavorite(fid, update)
