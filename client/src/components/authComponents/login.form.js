@@ -1,37 +1,35 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { Form, Row,FormGroup, Input, Label, Button, Col } from "reactstrap";
-import { selectUser } from "../redux/user/user.selectors";
-import { loginUser } from "../redux/user/user.actions";
-import { fetchFaves } from "../redux/favorites/favorites.actions";
+import { Form, Row, FormGroup, Input, Label, Button, Col } from "reactstrap";
 
-import "./homepage.styles.css";
-import "./favorites.styles.css";
+import { selectUser } from "../../redux/user/user.selectors";
+import { loginUser } from "../../redux/user/user.actions";
+import { fetchFaves } from "../../redux/favorites/favorites.actions";
 
-const LogIn = ({ loginUser, fetchFaves, user, close }) => {
+import "../../page/home.styles.css";
+import "../../page/favorites.styles.css";
+
+const LogIn = ({ loginUser, fetchFaves }) => {
 	const [state, setState] = useState({
 		username: "",
 		password: "",
 	});
 
-	const [error,setError] = useState("")
+	const [error, setError] = useState("");
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const { username, password } = state;
 
 		loginUser({ username, password })
-		.then(async (response) => {
-			fetchFaves(response.data.user.id);
-		})
-		.catch(async (err) => {
-					// await delay(2000);
-					return ( 
-						setError(`${err.response.data.message}`)
-					)})
-						
-	}
+			.then(async (response) => {
+				fetchFaves(response.data.user.id);
+			})
+			.catch(async (err) => {
+				return setError(`${err.response.data.message}`);
+			});
+	};
 
 	const handleChange = (e) => {
 		const { value, name } = e.target;
@@ -45,9 +43,9 @@ const LogIn = ({ loginUser, fetchFaves, user, close }) => {
 					<FormGroup row>
 						<Col lg={10}>
 							<Label for="username" sm={2}>
-								Username:
+								{"Username:"}
 							</Label>
-							<br></br>
+							<br />
 							<Input
 								size="lg"
 								type="text"
@@ -62,9 +60,9 @@ const LogIn = ({ loginUser, fetchFaves, user, close }) => {
 					<FormGroup row>
 						<Col lg={10}>
 							<Label for="password" sm={2}>
-								Password:
+								{"Password:"}
 							</Label>
-							<br></br>
+							<br />
 							<Input
 								size="lg"
 								type="password"
@@ -82,10 +80,10 @@ const LogIn = ({ loginUser, fetchFaves, user, close }) => {
 				</div>
 
 				<Button color="rgb(98, 46, 71, 0.8)" className="fave-button">
-					Submit
+					{"Submit"}
 				</Button>
 			</Form>
-			<br></br>
+			<br />
 		</div>
 	);
 };
@@ -98,7 +96,5 @@ const mapDispatchToProps = (dispatch) => ({
 	loginUser: (user) => dispatch(loginUser(user)),
 	fetchFaves: (id) => dispatch(fetchFaves(id)),
 });
-
-// const mapDispatchToProps = { loginUser, fetchFaves(id) };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);

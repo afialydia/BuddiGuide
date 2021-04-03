@@ -3,15 +3,16 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 import Fuse from "fuse.js";
 
-import { getStrains } from "../redux/strains/strain.selectors";
-import { getUserId } from "../redux/user/user.selectors";
-import { StrainContainer } from "../components/strain_container";
-import { getAllStrains } from "../redux/strains/strain.actions";
-
-import "./homepage.styles.css";
-
 import  Header  from "../components/header";
-import Loader from "../components/loader";
+import { StrainSortContainer } from "../components/strainComponents/strainSort.container";
+
+import { getStrains } from "../redux/strains/strain.selectors";
+import { getAllStrains } from "../redux/strains/strain.actions";
+import { getUserId } from "../redux/user/user.selectors";
+
+import "./home.styles.css";
+
+
 
 const HomePage = ({ strains, getAllStrains, user_id }) => {
 	const [searchField, setSearchField] = useState("");
@@ -27,15 +28,11 @@ const HomePage = ({ strains, getAllStrains, user_id }) => {
 
 	const options = {
 		isCaseSensitive: false,
-		// includeScore: false,
 		shouldSort: true,
-		// includeMatches: false,
 		findAllMatches: true,
 		minMatchCharLength: 4,
 		location: 0,
 		threshold: 0.6,
-		// distance: 100,
-		// useExtendedSearch: false,
 		keys: ["strain", "type", "effects", "flavor"],
 	};
 
@@ -45,7 +42,7 @@ const HomePage = ({ strains, getAllStrains, user_id }) => {
 		return (
 			<div className="strain-home">
 				<Header handleChange={handleChange} user_id={user_id} />
-				<StrainContainer allStrains={allStrains} />
+				<StrainSortContainer allStrains={allStrains} />
 			</div>
 		);
 	} else {
@@ -54,7 +51,7 @@ const HomePage = ({ strains, getAllStrains, user_id }) => {
 		return (
 			<div className="strain-home">
 				<Header handleChange={handleChange} user_id={user_id} />
-				<StrainContainer filteredStrains={filteredStrains} />
+				<StrainSortContainer filteredStrains={filteredStrains} />
 			</div>
 		);
 	}

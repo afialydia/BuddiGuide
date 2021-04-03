@@ -12,7 +12,6 @@ export const getAllStrains = () => (dispatch) => {
 				type: StrainTypes.GET_ALL_STRAINS_SUCCESS,
 				payload: response.data,
 			});
-			// console.log(payload)
 		})
 		.catch((err) =>
 			dispatch({
@@ -23,7 +22,6 @@ export const getAllStrains = () => (dispatch) => {
 };
 
 export const getStrain = (id) => (dispatch) => {
-	console.log("propz", id);
 	dispatch({ type: StrainTypes.GET_STRAIN_START });
 	axiosWithAuth
 		.get(`strains/${id}`)

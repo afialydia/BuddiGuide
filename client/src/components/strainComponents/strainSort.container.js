@@ -1,15 +1,14 @@
 import React from "react";
-import { Card } from "./strain_card";
-import "../page/homepage.styles.css";
+import { StrainContentsCard } from "./strainContents.card";
+import "../../page/home.styles.css";
 
-export const StrainContainer = ({ filteredStrains, allStrains }) => {
-	
+export const StrainSortContainer = ({ filteredStrains, allStrains }) => {
 	if (allStrains) {
 		return (
 			<div className="strain-container">
 				<div className="center">
 					{allStrains.map((strain) => (
-						<Card key={strain.id} strain={strain} />
+						<StrainContentsCard key={strain.id} strain={strain} />
 					))}
 				</div>
 			</div>
@@ -20,11 +19,10 @@ export const StrainContainer = ({ filteredStrains, allStrains }) => {
 			<div className="strain-container">
 				<div className="center">
 					{strains.map((strain) => (
-						<Card key={strain.item.id} strain={strain.item} />
+						<StrainContentsCard key={strain.item.id} strain={strain.item} />
 					))}
 				</div>
 			</div>
-			// <></>
 		);
 	}
 };

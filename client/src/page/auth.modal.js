@@ -1,37 +1,27 @@
 import React, { useState } from "react";
-import { Modal, ModalBody } from "reactstrap";
+import { Modal, ModalBody, TabContent, TabPane, NavLink } from "reactstrap";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import classnames from "classnames";
+
+import LogIn from "../components/authComponents/login.form";
+import Register from "../components/authComponents/register.form";
+
 import { fetchFave } from "../redux/favorites/favorites.actions";
 import { getUserId } from "../redux/user/user.selectors";
 import { selectFave } from "../redux/favorites/favorites.selectors";
-import "../page/homepage.styles.css";
-import "../page/favorites.styles.css";
-import LogIn from "../page/LogIn";
-import classnames from "classnames";
-import {
-	TabContent,
-	TabPane,
-	Nav,
-	NavItem,
-	NavLink,
-	Card,
-	Button,
-	CardTitle,
-	CardText,
-	Row,
-	Col,
-} from "reactstrap";
-import Register from "../page/RegisterPager";
 
-const Login_Modal = () => {
+import "./home.styles.css";
+import "./favorites.styles.css";
+
+const AuthModal = () => {
 	const [modal, setModal] = useState(false);
 
-	const close = () => setModal(!modal);
+	const toggle = () => setModal(!modal);
 
 	const [activeTab, setActiveTab] = useState("1");
 
-	const toggle = (tab) => {
+	const tabToggle = (tab) => {
 		if (activeTab !== tab) setActiveTab(tab);
 	};
 
@@ -42,66 +32,62 @@ const Login_Modal = () => {
 				size="sm"
 				aria-labelledby="contained-modal-title-vcenter"
 				centered={false}
-				backdrop={true}
-				fade={true}
-				autoFocus={true}
-				toggle={close}
+				backdrop
+				fade
+				autoFocus
+				tabToggle={toggle}
 				className="menu-modal"
 				contentClassName="menu-content"
 			>
-				<ModalBody className="">
+				<ModalBody>
 					<div tabs>
 						<NavLink
 							className={classnames({ active: activeTab === "1" })}
 							onClick={() => {
-								toggle("1");
+								tabToggle("1");
 							}}
 						>
 							<span>
 								<i
 									onClick={async () => {
-										await close();
+										await toggle();
 									}}
-									class="fas fa-times"
+									className="fas fa-times"
 								/>
 							</span>
-							{/* <h3>Welcome Back!</h3> */}
 						</NavLink>
 
-						{/* <NavItem> */}
-
-						{/* </NavItem> */}
-						{/* </Nav> */}
 						<TabContent activeTab={activeTab}>
 							<TabPane tabId="1">
-								<LogIn close={close} />
+								<LogIn toggle={toggle} />
 								<NavLink
 									className={classnames({ active: activeTab === "2" })}
 									onClick={() => {
-										toggle("2");
+										tabToggle("2");
 									}}
 								>
 									<div className="reg">
 										<i>
-											Don't have an account? <br></br>
-											<h6>Sign Up</h6>
+											{"Don't have an account?"} <br />
+											<h6>{"Sign Up"}</h6>
 										</i>
 									</div>
 								</NavLink>
 							</TabPane>
 
 							<TabPane tabId="2">
-								<Register close={close} />
+								<Register toggle={toggle} />
 								<NavLink
 									className={classnames({ active: activeTab === "2" })}
 									onClick={() => {
-										toggle("1");
+										tabToggle("1");
 									}}
 								>
 									<div className="reg">
 										<i>
-											Have an account?<br></br>
-											<h6>Log In</h6>
+											{"Have an account?"}
+											<br />
+											<h6> {"Login"}</h6>
 										</i>
 									</div>
 								</NavLink>
@@ -112,10 +98,10 @@ const Login_Modal = () => {
 			</Modal>
 			<span
 				onClick={() => {
-					close();
+					toggle();
 				}}
 			>
-				Login
+				{"Login"}
 			</span>
 		</>
 	);
@@ -130,4 +116,4 @@ const mapDispatchToProps = (dispatch) => ({
 	fetchFave: (id) => dispatch(fetchFave(id)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login_Modal);
+export default connect(mapStateToProps, mapDispatchToProps)(AuthModal);

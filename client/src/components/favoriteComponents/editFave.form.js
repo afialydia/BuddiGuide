@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Form, FormGroup, Input, Label, Button, Col } from "reactstrap";
+import { fetchFaves, editFave } from "../../redux/favorites/favorites.actions";
+import "../../page/favorites.styles.css";
 
-import { fetchFaves, editFave } from "../redux/favorites/favorites.actions";
-
-import "../page/favorites.styles.css";
-
-const EditingModal = ({ fave, user_id, editFave, toggle }, props) => {
+const EditFaveForm = ({ fave, user_id, editFave, toggle }, props) => {
 	const [state, setState] = useState({
 		have_tried: `${fave.have_tried}`,
 		notes: `${fave.notes}`,
@@ -18,7 +16,6 @@ const EditingModal = ({ fave, user_id, editFave, toggle }, props) => {
 
 	const handleChange = (e) => {
 		setState({ ...state, [e.target.name]: e.target.value });
-		// console.log(state);
 	};
 
 	const handleSubmit = (e) => {
@@ -34,27 +31,24 @@ const EditingModal = ({ fave, user_id, editFave, toggle }, props) => {
 	};
 
 	return (
-		<div
-		// className="edit-fave-container"
-		>
+		<div>
 			<span>
 				<i
 					onClick={async () => {
 						await toggle();
 					}}
-					class="fas fa-times"
+					className="fas fa-times"
 				/>
 			</span>
 			<div className="edit-fave">
 				<h2>{state.strain.toUpperCase()}</h2>
-				{/* {console.log("state", state)} */}
 				<Form className="form-container" onSubmit={handleSubmit}>
 					<FormGroup row>
 						<Col lg={10}>
 							<Label for="personal rating" sm={2}>
-								Rating:
+								{"Rating:"}
 							</Label>
-							<br></br>
+							<br />
 							<Input
 								size="lg"
 								type="select"
@@ -64,12 +58,12 @@ const EditingModal = ({ fave, user_id, editFave, toggle }, props) => {
 								name="personal_rating"
 								onChange={handleChange}
 							>
-								<option>Status: {fave.personal_rating}</option>
-								<option>Loved It</option>
-								<option>Liked It</option>
-								<option>Have Not Tried Yet</option>
-								<option>Not a Fan</option>
-								<option>Hated It</option>
+								<option>{"Status: "}{fave.personal_rating}</option>
+								<option>{"Loved It"}</option>
+								<option>{"Liked It"}</option>
+								<option>{"Have Not Tried Yet"}</option>
+								<option>{"Not a Fan"}</option>
+								<option>{"Hated It"}</option>
 							</Input>
 						</Col>
 					</FormGroup>
@@ -77,9 +71,9 @@ const EditingModal = ({ fave, user_id, editFave, toggle }, props) => {
 					<FormGroup row>
 						<Col lg={10}>
 							<Label for="notes" sm={2}>
-								Notes:
+								{"Notes:"}
 							</Label>
-							<br></br>
+							<br />
 							<Input
 								size="lg"
 								type="textarea"
@@ -91,7 +85,7 @@ const EditingModal = ({ fave, user_id, editFave, toggle }, props) => {
 						</Col>
 					</FormGroup>
 
-					<Button color="rgb(98, 46, 71, 0.8)" className="fave-button">Submit</Button>
+					<Button color="rgb(98, 46, 71, 0.8)" className="fave-button">{"Submit"}</Button>
 				</Form>
 			</div>
 		</div>
@@ -102,4 +96,4 @@ const mapDispatchToProps = (dispatch) => ({
 	editFave: ({ fid }, update) => dispatch(editFave({ fid }, update)),
 	fetchFaves: ({ user_id }) => dispatch(fetchFaves(user_id)),
 });
-export default connect(null, mapDispatchToProps)(EditingModal);
+export default connect(null, mapDispatchToProps)(EditFaveForm);

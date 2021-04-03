@@ -16,7 +16,6 @@ export const registerUser = (user, props, next) => async (dispatch) => {
 					payload: response.data,
 				});
 				resolve(response);
-				// next(props.history.push("/"));
 			})
 			.catch((err) => {
 				dispatch({
@@ -42,7 +41,6 @@ export const loginUser = (credentials, props) => async (dispatch) => {
 					payload: response.data.user,
 				});
 				resolve(response);
-				// props.history.push("/");
 			})
 			.catch((err) => {
 				dispatch({

@@ -19,7 +19,7 @@ const INITIAL_STATE = {
 	status: "",
 };
 
-const favorite_reducer = (state = INITIAL_STATE, action) => {
+const favoriteReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case FavoriteTypes.GET_FAVES_START:
 			return {
@@ -95,7 +95,6 @@ const favorite_reducer = (state = INITIAL_STATE, action) => {
 				...state,
 				editingFave: false,
 				editedFave: true,
-				// fave: action.payload,
 				error: "",
 			};
 		case FavoriteTypes.EDIT_FAVE_FAIL:
@@ -115,7 +114,6 @@ const favorite_reducer = (state = INITIAL_STATE, action) => {
 				...state,
 				deletingFave: false,
 				deletedFave: true,
-				// fave: action.payload,
 				error: "",
 				status: action.payload,
 			};
@@ -132,4 +130,4 @@ const favorite_reducer = (state = INITIAL_STATE, action) => {
 	}
 };
 
-export default favorite_reducer;
+export default favoriteReducer;

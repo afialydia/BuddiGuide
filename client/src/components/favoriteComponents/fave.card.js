@@ -1,10 +1,10 @@
 import React from "react";
-import EditFavorite from "./edit_favorite";
-import RemoveFavorite from "./remove_favorite";
-import "../page/favorites.styles.css";
-import "../page/homepage.styles.css";
+import EditFave from "./editFave.modal";
+import RemoveFavorite from "./removeFave.icon";
+import "../../page/favorites.styles.css";
+import "../../page/home.styles.css";
 
-export const FavoritesCard = ({ strain }, props) => {
+export const FaveCard = ({ strain }, props) => {
 	const { fid, strain: name, type, personal_rating, notes } = strain;
 
 	return (
@@ -12,18 +12,17 @@ export const FavoritesCard = ({ strain }, props) => {
 			<div className="strain-card">
 				<div className="favorites-card">
 					<span>
-						<EditFavorite fid={fid} /> <RemoveFavorite fid={fid} />
+						<EditFave fid={fid} /> <RemoveFavorite fid={fid} />
 					</span>
-					<br></br>
+					<br />
 					<div className="favorites-content">
 						<h3>{name.toUpperCase()}</h3>
 						<i>{type.toUpperCase()}</i>
-						<br></br>
+						<br />
 						<span>
 							<i>{personal_rating}</i>
 						</span>
-						<p>Notes: {notes}</p>
-						{/* <p>{strain.fid}</p> */}
+						<p>{"Notes:"} {notes}</p>
 					</div>
 				</div>
 			</div>

@@ -2,6 +2,7 @@ const db = require("../../database/dbConfig");
 const Users = require('./user_model')
 module.exports = {
 	findAllStrains,
+	findBy,
 	findById,
 	createFavorite
 };
@@ -15,6 +16,10 @@ function findAllStrains() {
 		"flavor",
 		"description"
 	);
+}
+
+function findBy(filter) {
+	return db("strains").where(filter);
 }
 
 function findById(id) {

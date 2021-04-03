@@ -1,11 +1,12 @@
 import { useState } from "react";
 
- const useToggle = (initialValue = false) => {
+
+const useToggle = (initialValue = false) => {
   const [state, setState] = useState(initialValue);
 
-  const searchGrabber = () => {
+  const toggle = () => {
     setState(!state);
   };
-  return [state, searchGrabber];
+  return [state, toggle];
 };
 export default useToggle;

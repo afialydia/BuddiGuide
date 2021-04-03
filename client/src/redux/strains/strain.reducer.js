@@ -1,5 +1,5 @@
 import { StrainTypes } from "./strain.types";
-import { UserTypes } from "../user/user.types";
+
 
 
 const INITIAL_STATE = {
@@ -12,7 +12,7 @@ const INITIAL_STATE = {
 	error: "",
 };
 
-const strain_reducer = (state = INITIAL_STATE, action) => {
+const strainReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case StrainTypes.GET_ALL_STRAINS_START:
 			return {
@@ -64,4 +64,4 @@ const strain_reducer = (state = INITIAL_STATE, action) => {
 	}
 };
 
-export default strain_reducer;
+export default strainReducer;

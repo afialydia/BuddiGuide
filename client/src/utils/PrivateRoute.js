@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import Login_Modal from "../components/login_modal";
-import menu from "../components/menu";
+
+import Login_Modal from "../page/auth.modal";
 
 function PrivateRoute({ component: Component, ...rest }) {
 	return (
