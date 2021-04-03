@@ -9,12 +9,6 @@ const About = () => {
 
 	const close = () => setModal(!modal);
 
-	const [activeTab, setActiveTab] = useState("1");
-
-	const toggle = (tab) => {
-		if (activeTab !== tab) setActiveTab(tab);
-	};
-
 	return (
 		<>
 			<Modal
@@ -79,7 +73,7 @@ const About = () => {
 					</div>
 					<span>
 						Developed w/ love by{" "}
-						<a href="https://afiacaruso.com/" target="_blank" className="afia">
+						<a href="https://afiacaruso.com/" target="_blank"  rel="noreferrer" className="afia">
 							<b>Afia Caruso</b>
 						</a>
 					</span>

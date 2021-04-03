@@ -1,21 +1,15 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Modal, ModalBody } from "reactstrap";
+import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { resetState } from "../redux/user/user.actions";
-import { fetchFave } from "../redux/favorites/favorites.actions";
-import { getUserId, getUser } from "../redux/user/user.selectors";
-import { selectFave } from "../redux/favorites/favorites.selectors";
+
+import { getUser } from "../redux/user/user.selectors";
 
 import Login_Modal from "../page/login.modal";
 import "../page/home.styles.css";
 import "../page/favorites.styles.css";
 
 const Menu = ({ logOutUser, user }) => {
-	// const [modal, setModal] = useState(false);
-
-	// const toggle = () => setModal(!modal);
 
 	return (
 		<>
