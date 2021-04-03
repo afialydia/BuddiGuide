@@ -1,6 +1,6 @@
 import { createSelector } from "reselect";
 
-const getAllStrains = (state) => state.strain_reducer;
+const getAllStrains = (state) => state.strainReducer;
 
 export const getStrains = createSelector(
 	[getAllStrains],

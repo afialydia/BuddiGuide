@@ -14,7 +14,7 @@ const INITIAL_STATE = {
 	message: null,
 };
 
-const user_reducer = (state = INITIAL_STATE, action) => {
+const userReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case UserTypes.REGISTER_START:
 			return {
@@ -75,4 +75,4 @@ const user_reducer = (state = INITIAL_STATE, action) => {
 	}
 };
 
-export default user_reducer;
+export default userReducer;

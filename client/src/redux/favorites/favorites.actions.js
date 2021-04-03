@@ -76,7 +76,7 @@ export const editFave = ({ fid }, state) => (dispatch) => {
 		);
 };
 
-export const deleteFave = ({ fid, user_id }, props) => (dispatch) => {
+export const deleteFave = ({ fid, user_id }) => (dispatch) => {
 	dispatch({ type: FavoriteTypes.DELETE_FAVE_START });
 	axiosWithAuth()
 		.delete(`users/${user_id}/favorites/${fid}`)
