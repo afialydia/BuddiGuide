@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
-import { selectAllFaves } from "../redux/favorites/favorites.selectors";
 
-import { getUserId } from "../redux/user/user.selectors";
-import { fetchFaves } from "../redux/favorites/favorites.actions";
-import { FavoritesContainer } from "../components/favorite_container";
 import Header from "../components/header";
+import { FavoritesContainer } from "../components/favorite_container";
+
+import { selectAllFaves } from "../redux/favorites/favorites.selectors";
+import { fetchFaves } from "../redux/favorites/favorites.actions";
+import { getUserId } from "../redux/user/user.selectors";
+
+
 import "./home.styles.css";
 
 const FavoritesPage = ({ strains, getAllFavorites, user_id }) => {

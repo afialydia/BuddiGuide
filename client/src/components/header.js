@@ -1,14 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { createStructuredSelector } from "reselect";
+import { connect } from "react-redux";
+
+import { getUser } from "../redux/user/user.selectors";
+
 import Menu from "./menu";
-import "../page/home.styles.css";
 import Buddi_Menu from "./buddi_menu";
 import { SearchBar } from "./searchBar";
-import { Container, Row, Button, Col } from "reactstrap";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import { getUser } from "../redux/user/user.selectors";
-import FAQ from "./loader";
+import About from "./about.modal";
+
+import "../page/home.styles.css";
 
 const Header = ({ handleChange, user }) => {
 	return (
@@ -18,7 +20,6 @@ const Header = ({ handleChange, user }) => {
 					<Link to="/favorites">
 						<Buddi_Menu />
 					</Link>
-					{/* <Loader /> */}
 				</div>
 				<div className="search-container">
 					<span>
@@ -29,7 +30,7 @@ const Header = ({ handleChange, user }) => {
 
 					<span>
 						<h5>
-							<FAQ />
+							<About />
 						</h5>
 					</span>
 

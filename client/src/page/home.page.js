@@ -4,10 +4,11 @@ import { connect } from "react-redux";
 import Fuse from "fuse.js";
 
 import  Header  from "../components/header";
-import { getStrains } from "../redux/strains/strain.selectors";
-import { getUserId } from "../redux/user/user.selectors";
 import { StrainSortContainer } from "../components/strainSort.container";
+
+import { getStrains } from "../redux/strains/strain.selectors";
 import { getAllStrains } from "../redux/strains/strain.actions";
+import { getUserId } from "../redux/user/user.selectors";
 
 import "./home.styles.css";
 

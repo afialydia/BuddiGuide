@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, ModalBody, TabContent, TabPane,	NavLink} from "reactstrap";
+import { Modal, ModalBody, TabContent, TabPane, NavLink } from "reactstrap";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import classnames from "classnames";
@@ -13,7 +13,6 @@ import { selectFave } from "../redux/favorites/favorites.selectors";
 
 import "./home.styles.css";
 import "./favorites.styles.css";
-
 
 const Login_Modal = () => {
 	const [modal, setModal] = useState(false);
@@ -56,7 +55,6 @@ const Login_Modal = () => {
 									class="fas fa-times"
 								/>
 							</span>
-
 						</NavLink>
 
 						<TabContent activeTab={activeTab}>

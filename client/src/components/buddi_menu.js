@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { Badge } from "reactstrap";
 
 import { fetchFaves } from "../redux/favorites/favorites.actions";
 import { getUserId } from "../redux/user/user.selectors";
