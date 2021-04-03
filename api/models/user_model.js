@@ -57,9 +57,10 @@ function getFavorites(user_id) {
 	return faves;
 }
 
+
 function getFavoriteById(user_id, fid) {
 
-	const faves = db("favorites")
+	const fave = db("favorites")
 		.select(
 			"f.fid as favorite_id",
 			"s.strain as strain",
@@ -71,7 +72,7 @@ function getFavoriteById(user_id, fid) {
 		.join("strains as s", "s.id", "f.strain_id")
 		.where({ user_id }).where({fid})
 	
-	return faves
+	return fave
 }
 
 function updateFavorite(fid, update) {
