@@ -42,12 +42,11 @@ const EditFaveForm = ({ fave, user_id, editFave, toggle }, props) => {
 			</span>
 			<div className="edit-fave">
 				<h2>{state.strain.toUpperCase()}</h2>
-				{/* {console.log("state", state)} */}
 				<Form className="form-container" onSubmit={handleSubmit}>
 					<FormGroup row>
 						<Col lg={10}>
 							<Label for="personal rating" sm={2}>
-								Rating:
+								{"Rating:"}
 							</Label>
 							<br />
 							<Input
@@ -59,12 +58,12 @@ const EditFaveForm = ({ fave, user_id, editFave, toggle }, props) => {
 								name="personal_rating"
 								onChange={handleChange}
 							>
-								<option>Status: {fave.personal_rating}</option>
-								<option>Loved It</option>
-								<option>Liked It</option>
-								<option>Have Not Tried Yet</option>
-								<option>Not a Fan</option>
-								<option>Hated It</option>
+								<option>{"Status: "}{fave.personal_rating}</option>
+								<option>{"Loved It"}</option>
+								<option>{"Liked It"}</option>
+								<option>{"Have Not Tried Yet"}</option>
+								<option>{"Not a Fan"}</option>
+								<option>{"Hated It"}</option>
 							</Input>
 						</Col>
 					</FormGroup>
@@ -72,7 +71,7 @@ const EditFaveForm = ({ fave, user_id, editFave, toggle }, props) => {
 					<FormGroup row>
 						<Col lg={10}>
 							<Label for="notes" sm={2}>
-								Notes:
+								{"Notes:"}
 							</Label>
 							<br />
 							<Input
@@ -86,7 +85,7 @@ const EditFaveForm = ({ fave, user_id, editFave, toggle }, props) => {
 						</Col>
 					</FormGroup>
 
-					<Button color="rgb(98, 46, 71, 0.8)" className="fave-button">Submit</Button>
+					<Button color="rgb(98, 46, 71, 0.8)" className="fave-button">{"Submit"}</Button>
 				</Form>
 			</div>
 		</div>
