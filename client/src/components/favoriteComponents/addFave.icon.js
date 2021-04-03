@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { addFave } from "../redux/favorites/favorites.actions";
-import { getUserId } from "../redux/user/user.selectors";
+import { addFave } from "../../redux/favorites/favorites.actions";
+import { getUserId } from "../../redux/user/user.selectors";
 
-const FavoriteStrain = ({ id, addFave, user_id }) => {
+const AddFave = ({ id, addFave, user_id }) => {
 	return <i onClick={() => addFave({ id, user_id })} class="fas fa-heart"></i>;
 };
 
@@ -16,4 +16,4 @@ const mapDispatchToProps = (dispatch) => ({
 	addFave: (id) => dispatch(addFave(id)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FavoriteStrain);
+export default connect(mapStateToProps, mapDispatchToProps)(AddFave);

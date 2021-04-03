@@ -1,6 +1,6 @@
 import React from "react";
 import { StrainContentsCard } from "./strainContents.card";
-import "../page/home.styles.css";
+import "../../page/home.styles.css";
 
 export const StrainSortContainer = ({ filteredStrains, allStrains }) => {
 	if (allStrains) {

@@ -1,7 +1,7 @@
 import React from "react";
-import "../page/home.styles.css";
-import useToggle from "../hooks/useToggle";
-import FavoriteStrain from "./favorite";
+import useToggle from "../../hooks/useToggle";
+import FavoriteStrain from "../favoriteComponents/addFave.icon";
+import "../../page/home.styles.css";
 
 export const StrainContentsCard = ({ strain }) => {
 	const [front, back] = useToggle(true);

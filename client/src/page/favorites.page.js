@@ -3,7 +3,7 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import Header from "../components/header";
-import { FavoritesContainer } from "../components/favorite_container";
+import { FaveContainer } from "../components/favoriteComponents/fave.container"
 
 import { selectAllFaves } from "../redux/favorites/favorites.selectors";
 import { fetchFaves } from "../redux/favorites/favorites.actions";
@@ -32,7 +32,7 @@ const FavoritesPage = ({ strains, getAllFavorites, user_id }) => {
 		<div className="strain-home">
 			<Header handleChange={handleChange} />
 
-			<FavoritesContainer strains={filteredStrains} />
+			<FaveContainer strains={filteredStrains} />
 		</div>
 	);
 };

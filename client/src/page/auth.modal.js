@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import classnames from "classnames";
 
-import LogIn from "../components/login.form";
-import Register from "../components/register.form";
+import LogIn from "../components/authComponents/login.form";
+import Register from "../components/authComponents/register.form";
 
 import { fetchFave } from "../redux/favorites/favorites.actions";
 import { getUserId } from "../redux/user/user.selectors";
@@ -14,7 +14,7 @@ import { selectFave } from "../redux/favorites/favorites.selectors";
 import "./home.styles.css";
 import "./favorites.styles.css";
 
-const Login_Modal = () => {
+const AuthModal = () => {
 	const [modal, setModal] = useState(false);
 
 	const toggle = () => setModal(!modal);
@@ -116,4 +116,4 @@ const mapDispatchToProps = (dispatch) => ({
 	fetchFave: (id) => dispatch(fetchFave(id)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login_Modal);
+export default connect(mapStateToProps, mapDispatchToProps)(AuthModal);

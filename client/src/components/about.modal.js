@@ -60,10 +60,16 @@ const About = () => {
 							}
 						</p>
 						<p>
-							<b>{"To streamline the process of going to the dispensary."}</b>{" When consumers know what they want and can filter through options beforehand, making a dispensary trip can be a lot less daunting."}
+							<b>{"To streamline the process of going to the dispensary."}</b>
+							{
+								" When consumers know what they want and can filter through options beforehand, making a dispensary trip can be a lot less daunting."
+							}
 						</p>
 						<p>
-							<b>{"To keep the good vibes flowing."}</b> {"Not all strains work well for all people. With BuddiGuide, registered app users can save marijuana strains to their profile, rate them based on their preference, and document their experiences. Never forget a strain that you love. Never regret knowing what doesn't work."}
+							<b>{"To keep the good vibes flowing."}</b>{" "}
+							{
+								"Not all strains work well for all people. With BuddiGuide, registered app users can save marijuana strains to their profile, rate them based on their preference, and document their experiences. Never forget a strain that you love. Never regret knowing what doesn't work."
+							}
 						</p>
 					</div>
 					<span>

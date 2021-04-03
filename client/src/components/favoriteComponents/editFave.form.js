@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Form, FormGroup, Input, Label, Button, Col } from "reactstrap";
+import { fetchFaves, editFave } from "../../redux/favorites/favorites.actions";
+import "../../page/favorites.styles.css";
 
-import { fetchFaves, editFave } from "../redux/favorites/favorites.actions";
-
-import "../page/favorites.styles.css";
-
-const EditingModal = ({ fave, user_id, editFave, toggle }, props) => {
+const EditFaveForm = ({ fave, user_id, editFave, toggle }, props) => {
 	const [state, setState] = useState({
 		have_tried: `${fave.have_tried}`,
 		notes: `${fave.notes}`,
@@ -18,7 +16,6 @@ const EditingModal = ({ fave, user_id, editFave, toggle }, props) => {
 
 	const handleChange = (e) => {
 		setState({ ...state, [e.target.name]: e.target.value });
-		// console.log(state);
 	};
 
 	const handleSubmit = (e) => {
@@ -34,9 +31,7 @@ const EditingModal = ({ fave, user_id, editFave, toggle }, props) => {
 	};
 
 	return (
-		<div
-		// className="edit-fave-container"
-		>
+		<div>
 			<span>
 				<i
 					onClick={async () => {
@@ -102,4 +97,4 @@ const mapDispatchToProps = (dispatch) => ({
 	editFave: ({ fid }, update) => dispatch(editFave({ fid }, update)),
 	fetchFaves: ({ user_id }) => dispatch(fetchFaves(user_id)),
 });
-export default connect(null, mapDispatchToProps)(EditingModal);
+export default connect(null, mapDispatchToProps)(EditFaveForm);

@@ -1,21 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { resetState } from "../redux/user/user.actions";
+import { resetState } from "../../redux/user/user.actions";
 
-import { getUser } from "../redux/user/user.selectors";
+import { getUser } from "../../redux/user/user.selectors";
 
-import Login_Modal from "../page/login.modal";
-import "../page/home.styles.css";
-import "../page/favorites.styles.css";
+import AuthModal from "../../page/auth.modal";
+import "../../page/home.styles.css";
+import "../../page/favorites.styles.css";
 
-const Menu = ({ logOutUser, user }) => {
+const AuthItem = ({ logOutUser, user }) => {
 	return (
 		<h5>
 			{Object.prototype.hasOwnProperty.call(user, "id") ? (
 				<div onClick={logOutUser}>{"Log Out"}</div>
 			) : (
-				<Login_Modal />
+				<AuthModal />
 			)}
 		</h5>
 	);
@@ -29,4 +29,4 @@ const mapDispatchToProps = (dispatch) => ({
 	logOutUser: () => dispatch(resetState()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Menu);
+export default connect(mapStateToProps, mapDispatchToProps)(AuthItem);

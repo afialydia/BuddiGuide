@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 
 import { getUser } from "../redux/user/user.selectors";
 
-import Menu from "./menu";
-import Buddi_Menu from "./buddi_menu";
+import Menu from "./authComponents/auth.navItem";
+import FaveCounter from "./favoriteComponents/faveCounter.navItem";
 import { SearchBar } from "./searchBar";
 import About from "./about.modal";
 
@@ -18,7 +18,7 @@ const Header = ({ handleChange, user }) => {
 			<div className="header-nav">
 				<div className="fave-nav">
 					<Link to="/favorites">
-						<Buddi_Menu />
+						<FaveCounter />
 					</Link>
 				</div>
 				<div className="search-container">

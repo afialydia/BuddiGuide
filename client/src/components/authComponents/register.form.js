@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 
 import { Form, FormGroup, Input, Label, Button, Col, Row } from "reactstrap";
 
-import { registerUser, resetState } from "../redux/user/user.actions";
+import { registerUser, resetState } from "../../redux/user/user.actions";
 
-import "../page/home.styles.css";
-import "../page/favorites.styles.css";
+import "../../page/home.styles.css";
+import "../../page/favorites.styles.css";
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 

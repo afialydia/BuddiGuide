@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import { Modal, ModalBody } from "reactstrap";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { fetchFave } from "../redux/favorites/favorites.actions";
-import { getUserId } from "../redux/user/user.selectors";
-import { selectFave } from "../redux/favorites/favorites.selectors";
-import EditingModal from "./editing_modal";
-import "../page/favorites.styles.css";
+import EditFaveForm from "./editFave.form";
+import { fetchFave } from "../../redux/favorites/favorites.actions";
+import { getUserId } from "../../redux/user/user.selectors";
+import { selectFave } from "../../redux/favorites/favorites.selectors";
+import "../../page/favorites.styles.css";
 
-
-const EditFavorite = ({ fid, fetchFave, user_id, fave }, props) => {
+const EditFave = ({ fid, fetchFave, user_id, fave }, props) => {
 	const [modal, setModal] = useState(false);
 
 	const toggle = () => setModal(!modal);
@@ -35,7 +34,7 @@ const EditFavorite = ({ fid, fetchFave, user_id, fave }, props) => {
 				contentClassName="edit-fave"
 			>
 				<ModalBody >
-					<EditingModal fave={fave[0]} user_id={user_id} toggle={toggle} />{" "}
+					<EditFaveForm fave={fave[0]} user_id={user_id} toggle={toggle} />{" "}
 				</ModalBody>
 			</Modal>
 			<i
@@ -57,4 +56,4 @@ const mapDispatchToProps = (dispatch) => ({
 	fetchFave: (id) => dispatch(fetchFave(id)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditFavorite);
+export default connect(mapStateToProps, mapDispatchToProps)(EditFave);

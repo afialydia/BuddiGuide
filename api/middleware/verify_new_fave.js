@@ -12,7 +12,7 @@ module.exports = (req, res, next) => {
 				next();
 			} else {
 				favorites.forEach((favorite) => {
-					if (favorite.strain_id == strain_id) {
+					if (favorite.strain_id === strain_id) {
 						flag = true;
 						data.push(favorite);
 					}

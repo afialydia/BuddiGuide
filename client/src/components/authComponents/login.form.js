@@ -3,12 +3,12 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { Form, Row, FormGroup, Input, Label, Button, Col } from "reactstrap";
 
-import { selectUser } from "../redux/user/user.selectors";
-import { loginUser } from "../redux/user/user.actions";
-import { fetchFaves } from "../redux/favorites/favorites.actions";
+import { selectUser } from "../../redux/user/user.selectors";
+import { loginUser } from "../../redux/user/user.actions";
+import { fetchFaves } from "../../redux/favorites/favorites.actions";
 
-import "../page/home.styles.css";
-import "../page/favorites.styles.css";
+import "../../page/home.styles.css";
+import "../../page/favorites.styles.css";
 
 const LogIn = ({ loginUser, fetchFaves }) => {
 	const [state, setState] = useState({
