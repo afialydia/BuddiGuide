@@ -21,7 +21,8 @@ router.get("/:id", (req, res) => {
 });
 
 //Adds a favorite
-router.post("/:strain_id", authenticate, 
+router.post("/:strain_id", 
+authenticate, 
 verify_new_fave, 
 (req, res) => {
 	const { strain_id } = req.params;
