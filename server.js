@@ -7,10 +7,19 @@ const helmet = require("helmet");
 
 const server = express();
 
+// set up rate limiter: maximum of 100 requests per 15 minutes
+var RateLimit = require('express-rate-limit');
+var limiter = new RateLimit({
+  windowMs: 15*60*1000, // 15 minute
+  max: 100,
+  message: "Give us a moment we're loading." 
+});
+
 server.use(helmet());
 server.use(cors());
 server.use(express.json());
 server.use(compression());
+server.use(limiter)
 
 const strainRouter = require("./api/routes/strain_router");
 const userRouter = require("./api/routes/user_router");
