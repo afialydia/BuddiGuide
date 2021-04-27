@@ -77,7 +77,7 @@ const About = () => {
 						<a
 							href="https://afiacaruso.com/"
 							target="_blank"
-							rel="noreferrer"
+							rel="noopener noreferrer"
 							className="afia"
 						>
 							<b> {"Afia Caruso"}</b>
