@@ -3,7 +3,7 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 import Fuse from "fuse.js";
 
-import  Header  from "../components/header";
+import  Header  from "../components/uiComponents/header";
 import { StrainSortContainer } from "../components/strainComponents/strainSort.container";
 
 import { getStrains } from "../redux/strains/strain.selectors";

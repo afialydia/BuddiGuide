@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Modal, ModalBody } from "reactstrap";
 
-import "../page/home.styles.css";
-import "../page/favorites.styles.css";
+import "../../page/home.styles.css";
+import "../../page/favorites.styles.css";
 
 const About = () => {
 	const [modal, setModal] = useState(false);
@@ -77,7 +77,7 @@ const About = () => {
 						<a
 							href="https://afiacaruso.com/"
 							target="_blank"
-							rel="noreferrer"
+							rel="noopener noreferrer"
 							className="afia"
 						>
 							<b> {"Afia Caruso"}</b>
