@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Modal, ModalBody } from "reactstrap";
 
-import "../page/home.styles.css";
-import "../page/favorites.styles.css";
+import "../../page/home.styles.css";
+import "../../page/favorites.styles.css";
 
 const About = () => {
 	const [modal, setModal] = useState(false);

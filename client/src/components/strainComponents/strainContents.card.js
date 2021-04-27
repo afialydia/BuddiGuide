@@ -1,16 +1,25 @@
 import React from "react";
+import { createStructuredSelector } from "reselect";
+import { connect } from "react-redux";
+
+import { getUser } from "../../redux/user/user.selectors";
 import useToggle from "../../hooks/useToggle";
 import FavoriteStrain from "../favoriteComponents/addFave.icon";
+
 import "../../page/home.styles.css";
 
-export const StrainContentsCard = ({ strain }) => {
+const StrainContentsCard = ({ strain, user }) => {
 	const [front, back] = useToggle(true);
 
 	const { id, strain: name, type, effects, flavor, description } = strain;
 	return (
 		<div className={`card-container ${type}`}>
 			<span>
-				<FavoriteStrain id={id} />
+				{Object.prototype.hasOwnProperty.call(user, "id") ? (
+					<FavoriteStrain id={id} />
+				) : (
+					""
+				)}
 			</span>
 			<div className="strain-card" onClick={back}>
 				{front ? (
@@ -38,3 +47,9 @@ export const StrainContentsCard = ({ strain }) => {
 		</div>
 	);
 };
+
+const mapStateToProps = createStructuredSelector({
+	user: getUser,
+});
+
+export default connect(mapStateToProps)(StrainContentsCard);

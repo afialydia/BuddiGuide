@@ -3,24 +3,24 @@ import { Link } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
-import { getUser } from "../redux/user/user.selectors";
+import { getUser } from "../../redux/user/user.selectors";
 
-import Menu from "./authComponents/auth.navItem";
-import FaveCounter from "./favoriteComponents/faveCounter.navItem";
+import AuthItem from "../authComponents/auth.navItem";
+import FaveCounter from "../favoriteComponents/faveCounter.navItem";
 import { SearchBar } from "./searchBar";
 import About from "./about.modal";
 
-import "../page/home.styles.css";
+import "../../page/home.styles.css";
 
 const Header = ({ handleChange, user }) => {
 	return (
 		<div className="header-container">
 			<div className="header-nav">
-				<div className="fave-nav">
+				{Object.prototype.hasOwnProperty.call(user, "id") ? <div className="fave-nav">
 					<Link to="/favorites">
 						<FaveCounter />
 					</Link>
-				</div>
+				</div> : ''}
 				<div className="search-container">
 					<span>
 						<Link className="noline" to="/">
@@ -42,7 +42,7 @@ const Header = ({ handleChange, user }) => {
 					</span>
 				</div>
 				<div className="spacer">
-					<Menu />
+					<AuthItem />
 				</div>
 			</div>
 		</div>

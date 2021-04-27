@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
-import Header from "../components/header";
+import Header from "../components/uiComponents/header";
 import { FaveContainer } from "../components/favoriteComponents/fave.container"
 
 import { selectAllFaves } from "../redux/favorites/favorites.selectors";
